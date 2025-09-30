@@ -1,0 +1,62 @@
+x-common-vars: &var
+  tty: true
+  stdin_open: true
+  privileged: true
+  ipc: host
+  network_mode: host
+  stop_grace_period: 1s
+
+x-common-env: &env
+  RMW_IMPLEMENTATION: rmw_cyclonedds_cpp 
+  ROS_DOMAIN_ID: $ROS_DOMAIN_ID
+  
+volumes:
+  mavros_build: {}
+  mavros_devel: {}
+  slam_build: {}
+  slam_devel: {}
+
+services:
+  mavros:
+    build:
+      context: ../..
+      dockerfile: docker/dockerfiles/Dockerfile
+      target: mavros
+      args:
+        USER: mavros
+        USER_UID: ${UID}
+        USER_GID: ${GID}
+    image: hermes/mavros:dev
+    container_name: mavros
+    <<: *var
+    group_add: ["dialout","plugdev"]
+    # devices:
+    #   - ${PX4_DEV:-/dev/ttyACM0}:${PX4_DEV:-/dev/ttyACM0}
+    environment:
+      <<: *env
+    volumes:
+      - mavros_build:/home/mavros/hermes_ws/build
+      - mavros_devel:/home/mavros/hermes_ws/devel
+      - ../../packages/mavros_pkg:/home/mavros/hermes_ws/src
+    command: bash
+
+  slam:
+    build:
+      context: ../..
+      dockerfile: docker/dockerfiles/Dockerfile
+      target: slam
+      args:
+        USER: slam
+        USER_UID: ${UID}
+        USER_GID: ${GID}
+    image: hermes/slam:dev
+    container_name: slam
+    <<: *var
+    group_add: ["video"]
+    environment:
+      <<: *env
+    volumes:
+      - slam_build:/home/slam/hermes_ws/build
+      - slam_devel:/home/slam/hermes_ws/devel
+      - ../../packages/slam_pkg:/home/slam/hermes_ws/src
+    command: bash
