@@ -45,7 +45,7 @@ ENTRYPOINT [ "/ros_entrypoint.sh" ]
 WORKDIR ${ROS_WS}
 COPY --chown=${USER}:${USER} packages/slam_pkg ${ROS_WS}/src
 USER $USER
-RUN sh /build/init_build.sh ${USER} \
-    && cd ${ROS_WS}/src/livox_ros_driver2 \
-    && sudo ./build.sh humble
+# RUN sh /build/init_build.sh ${USER} \
+#     && cd ${ROS_WS}/src/livox_ros_driver2 \
+#     && sudo ./build.sh humble
 CMD [ "/bin/bash" ]

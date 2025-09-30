@@ -1,1055 +1,0 @@
---progress is a global compose flag, better use `docker compose --progress xx build ...
-#0 building with "default" instance using docker driver
-
-#1 [mavros internal] load .dockerignore
-#1 transferring context: 2B done
-#1 DONE 0.0s
-
-#2 [slam internal] load .dockerignore
-#2 transferring context: 2B done
-#2 DONE 0.0s
-
-#3 [slam internal] load build definition from Dockerfile
-#3 transferring dockerfile: 1.21kB done
-#3 DONE 0.0s
-
-#4 [mavros internal] load build definition from Dockerfile
-#4 transferring dockerfile: 1.21kB done
-#4 DONE 0.0s
-
-#5 [slam internal] load metadata for docker.io/library/ros:humble-ros-base
-#5 DONE 0.3s
-
-#6 [slam internal] load build context
-#6 transferring context: 999B done
-#6 DONE 0.0s
-
-#7 [slam base 2/4] COPY docker/scripts/build/ /build/
-#7 DONE 0.0s
-
-#8 [mavros base 1/4] FROM docker.io/library/ros:humble-ros-base@sha256:3a3534452e220255701ed0ec557dd5f8eb6d085aa4a1ab9d41460a83a975249b
-#8 CACHED
-
-#9 [mavros internal] load build context
-#9 transferring context: 32.77kB done
-#9 DONE 0.0s
-
-#10 [slam base 3/4] COPY docker/scripts/entrypoint/ros_entrypoint.sh /ros_entrypoint.sh
-#10 DONE 0.0s
-
-#11 [slam base 4/4] RUN chown root:root /ros_entrypoint.sh &&     chmod 755 /ros_entrypoint.sh &&     sh /build/install_depend.sh
-#11 0.978 Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
-#11 0.978 Get:2 http://packages.ros.org/ros2/ubuntu jammy InRelease [4682 B]
-#11 0.999 Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
-#11 1.285 Get:4 http://packages.ros.org/ros2/ubuntu jammy/main Sources [1743 kB]
-#11 2.534 Get:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
-#11 2.921 Get:6 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3371 kB]
-#11 2.922 Get:7 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
-#11 3.137 Get:8 http://packages.ros.org/ros2/ubuntu jammy/main amd64 Packages [1715 kB]
-#11 3.253 Get:9 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
-#11 6.152 Get:10 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1274 kB]
-#11 6.248 Get:11 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [71.0 kB]
-#11 6.248 Get:12 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5609 kB]
-#11 6.260 Get:13 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
-#11 6.527 Get:14 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
-#11 6.544 Get:15 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
-#11 6.787 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [69.1 kB]
-#11 6.796 Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5804 kB]
-#11 7.599 Get:18 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1577 kB]
-#11 7.821 Get:19 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3690 kB]
-#11 8.308 Get:20 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
-#11 8.322 Get:21 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
-#11 8.416 Fetched 45.4 MB in 8s (5489 kB/s)
-#11 8.416 Reading package lists...
-#11 9.068 Reading package lists...
-#11 9.702 Building dependency tree...
-#11 9.851 Reading state information...
-#11 9.984 git is already the newest version (1:2.34.1-1ubuntu1.15).
-#11 9.984 sudo is already the newest version (1.9.9-1ubuntu2.5).
-#11 9.984 sudo set to manually installed.
-#11 9.984 The following additional packages will be installed:
-#11 9.984   acl dbus dmsetup gir1.2-glib-2.0 gir1.2-packagekitglib-1.0 iso-codes
-#11 9.984   libacl1-dev libapparmor1 libappstream4 libargon2-1 libattr1-dev libcap2-bin
-#11 9.984   libcryptsetup12 libcurl4 libdevmapper1.02.1 libdw1 libelf1
-#11 9.984   libgirepository-1.0-1 libglib2.0-bin libglib2.0-data libgpm2
-#11 9.984   libgstreamer1.0-0 libhiredis0.14 libip4tc2 libjson-c5 libkmod2
-#11 9.984   libnss-systemd libpackagekit-glib2-18 libpam-cap libpam-systemd
-#11 9.984   libpolkit-agent-1-0 libpolkit-gobject-1-0 libsodium23 libstemmer0d
-#11 9.984   libunwind8 libusb-1.0-0 libxmlb2 networkd-dispatcher packagekit
-#11 9.984   packagekit-tools pkexec policykit-1 polkitd python-apt-common python3-apt
-#11 9.984   python3-blinker python3-distro-info python3-gi python3-httplib2
-#11 9.984   python3-jeepney python3-jwt python3-keyring python3-launchpadlib
-#11 9.984   python3-lazr.restfulclient python3-lazr.uri python3-oauthlib
-#11 9.984   python3-secretstorage python3-software-properties python3-wadllib
-#11 9.984   python3-wheel ros-humble-cyclonedds ros-humble-iceoryx-binding-c
-#11 9.984   ros-humble-iceoryx-hoofs ros-humble-iceoryx-posh systemd systemd-sysv
-#11 9.984   systemd-timesyncd unattended-upgrades vim-common vim-runtime xxd
-#11 9.985 Suggested packages:
-#11 9.985   distcc | icecc default-dbus-session-bus | dbus-session-bus isoquery gpm
-#11 9.985   gstreamer1.0-tools iw | wireless-tools appstream python3-apt-dbg
-#11 9.985   python-apt-doc python-blinker-doc python3-crypto gir1.2-secret-1
-#11 9.985   gnome-keyring libkf5wallet-bin python3-keyrings.alt python3-testresources
-#11 9.985   python-secretstorage-doc systemd-container libfido2-1 libtss2-esys-3.0.2-0
-#11 9.985   libtss2-mu0 libtss2-rc0 bsd-mailx default-mta | mail-transport-agent
-#11 9.985   needrestart powermgmt-base ctags vim-doc vim-scripts
-#11 10.09 The following NEW packages will be installed:
-#11 10.09   acl apt-transport-https ccache dbus dmsetup gir1.2-glib-2.0
-#11 10.09   gir1.2-packagekitglib-1.0 iputils-ping iso-codes libacl1-dev libapparmor1
-#11 10.09   libappstream4 libargon2-1 libattr1-dev libcap2-bin libcryptsetup12
-#11 10.09   libdevmapper1.02.1 libdw1 libelf1 libgirepository-1.0-1 libglib2.0-bin
-#11 10.09   libglib2.0-data libgpm2 libgstreamer1.0-0 libhiredis0.14 libip4tc2
-#11 10.09   libjson-c5 libkmod2 libnss-systemd libpackagekit-glib2-18 libpam-cap
-#11 10.09   libpam-systemd libpolkit-agent-1-0 libpolkit-gobject-1-0 libsodium23
-#11 10.09   libstemmer0d libunwind8 libusb-1.0-0 libxmlb2 net-tools networkd-dispatcher
-#11 10.09   packagekit packagekit-tools pkexec policykit-1 polkitd python-apt-common
-#11 10.09   python3-apt python3-blinker python3-distro-info python3-gi python3-httplib2
-#11 10.09   python3-jeepney python3-jwt python3-keyring python3-launchpadlib
-#11 10.09   python3-lazr.restfulclient python3-lazr.uri python3-oauthlib python3-pip
-#11 10.09   python3-secretstorage python3-software-properties python3-wadllib
-#11 10.09   python3-wheel ros-humble-cyclonedds ros-humble-iceoryx-binding-c
-#11 10.09   ros-humble-iceoryx-hoofs ros-humble-iceoryx-posh ros-humble-launch-pytest
-#11 10.09   ros-humble-rmw-cyclonedds-cpp software-properties-common systemd
-#11 10.09   systemd-sysv systemd-timesyncd unattended-upgrades usbutils vim vim-common
-#11 10.09   vim-runtime wget xxd
-#11 10.09 The following packages will be upgraded:
-#11 10.09   curl libcurl4
-#11 10.60 2 upgraded, 81 newly installed, 0 to remove and 118 not upgraded.
-#11 10.60 Need to get 27.0 MB of archives.
-#11 10.60 After this operation, 117 MB of additional disk space will be used.
-#11 10.60 Get:1 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-iceoryx-binding-c amd64 2.0.5-1jammy.20250701.012426 [64.8 kB]
-#11 10.65 Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libapparmor1 amd64 3.0.4-2ubuntu2.4 [39.7 kB]
-#11 11.42 Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 libargon2-1 amd64 0~20171227-0.3 [19.5 kB]
-#11 11.43 Get:4 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-iceoryx-hoofs amd64 2.0.5-1jammy.20250701.011506 [212 kB]
-#11 11.44 Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libdevmapper1.02.1 amd64 2:1.02.175-2.1ubuntu5 [139 kB]
-#11 11.86 Get:6 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-iceoryx-posh amd64 2.0.5-1jammy.20250701.011751 [401 kB]
-#11 12.06 Get:7 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-cyclonedds amd64 0.10.5-2jammy.20250701.012606 [1054 kB]
-#11 12.07 Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libjson-c5 amd64 0.15-3~ubuntu1.22.04.2 [33.5 kB]
-#11 12.14 Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcryptsetup12 amd64 2:2.4.3-1ubuntu1.3 [211 kB]
-#11 12.43 Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libip4tc2 amd64 1.8.7-1ubuntu5.2 [19.9 kB]
-#11 12.45 Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libkmod2 amd64 29-1ubuntu1 [48.0 kB]
-#11 12.48 Get:12 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-launch-pytest amd64 1.0.10-1jammy.20250718.232315 [22.1 kB]
-#11 12.48 Get:13 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-rmw-cyclonedds-cpp amd64 1.3.4-1jammy.20250823.074614 [167 kB]
-#11 12.49 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd amd64 249.11-0ubuntu3.16 [4581 kB]
-#11 13.51 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-sysv amd64 249.11-0ubuntu3.16 [10.5 kB]
-#11 13.51 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 dbus amd64 1.12.20-2ubuntu4.1 [158 kB]
-#11 13.53 Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 dmsetup amd64 2:1.02.175-2.1ubuntu5 [81.7 kB]
-#11 13.54 Get:18 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgirepository-1.0-1 amd64 1.72.0-1 [55.6 kB]
-#11 13.54 Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 gir1.2-glib-2.0 amd64 1.72.0-1 [164 kB]
-#11 13.58 Get:20 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcap2-bin amd64 1:2.44-1ubuntu0.22.04.2 [26.0 kB]
-#11 13.59 Get:21 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 iputils-ping amd64 3:20211215-1ubuntu0.1 [43.0 kB]
-#11 13.60 Get:22 http://archive.ubuntu.com/ubuntu jammy/main amd64 iso-codes all 4.9.0-1 [3459 kB]
-#11 14.10 Get:23 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libelf1 amd64 0.186-1ubuntu0.1 [51.1 kB]
-#11 14.12 Get:24 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libglib2.0-data all 2.72.4-0ubuntu2.6 [4698 B]
-#11 14.12 Get:25 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnss-systemd amd64 249.11-0ubuntu3.16 [133 kB]
-#11 14.14 Get:26 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpam-cap amd64 1:2.44-1ubuntu0.22.04.2 [7930 B]
-#11 14.14 Get:27 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpam-systemd amd64 249.11-0ubuntu3.16 [203 kB]
-#11 14.18 Get:28 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-gi amd64 3.42.1-0ubuntu1 [229 kB]
-#11 14.22 Get:29 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 networkd-dispatcher all 2.1-2ubuntu0.22.04.2 [15.8 kB]
-#11 14.22 Get:30 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python-apt-common all 2.4.0ubuntu4 [14.6 kB]
-#11 14.22 Get:31 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-apt amd64 2.4.0ubuntu4 [164 kB]
-#11 14.40 Get:32 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-timesyncd amd64 249.11-0ubuntu3.16 [31.2 kB]
-#11 14.70 Get:33 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 xxd amd64 2:8.2.3995-1ubuntu2.24 [51.4 kB]
-#11 14.70 Get:34 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-common all 2:8.2.3995-1ubuntu2.24 [81.5 kB]
-#11 14.70 Get:35 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libusb-1.0-0 amd64 2:1.0.25-1ubuntu2 [52.7 kB]
-#11 14.70 Get:36 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-distro-info all 1.1ubuntu0.2 [6554 B]
-#11 14.70 Get:37 http://archive.ubuntu.com/ubuntu jammy/main amd64 usbutils amd64 1:014-1build1 [85.6 kB]
-#11 14.71 Get:38 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 wget amd64 1.21.2-2ubuntu1.1 [339 kB]
-#11 14.75 Get:39 http://archive.ubuntu.com/ubuntu jammy/main amd64 acl amd64 2.3.1-1 [38.5 kB]
-#11 14.76 Get:40 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 apt-transport-https all 2.4.14 [1510 B]
-#11 14.76 Get:41 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libhiredis0.14 amd64 0.14.1-2 [32.8 kB]
-#11 15.01 Get:42 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ccache amd64 4.5.1-1 [495 kB]
-#11 15.31 Get:43 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 curl amd64 7.81.0-1ubuntu1.21 [194 kB]
-#11 15.32 Get:44 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.21 [290 kB]
-#11 15.35 Get:45 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpackagekit-glib2-18 amd64 1.2.5-2ubuntu3 [124 kB]
-#11 15.37 Get:46 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 gir1.2-packagekitglib-1.0 amd64 1.2.5-2ubuntu3 [25.3 kB]
-#11 15.37 Get:47 http://archive.ubuntu.com/ubuntu jammy/main amd64 libstemmer0d amd64 2.2.0-1build1 [165 kB]
-#11 15.40 Get:48 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxmlb2 amd64 0.3.6-2build1 [67.8 kB]
-#11 15.41 Get:49 http://archive.ubuntu.com/ubuntu jammy/main amd64 libappstream4 amd64 0.15.2-2 [192 kB]
-#11 15.43 Get:50 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libdw1 amd64 0.186-1ubuntu0.1 [251 kB]
-#11 15.47 Get:51 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libglib2.0-bin amd64 2.72.4-0ubuntu2.6 [80.9 kB]
-#11 15.58 Get:52 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgpm2 amd64 1.20.7-10build1 [15.3 kB]
-#11 15.85 Get:53 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libunwind8 amd64 1.3.2-2build2.1 [54.5 kB]
-#11 15.85 Get:54 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgstreamer1.0-0 amd64 1.20.3-0ubuntu1.1 [984 kB]
-#11 15.97 Get:55 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpolkit-gobject-1-0 amd64 0.105-33 [43.2 kB]
-#11 15.97 Get:56 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpolkit-agent-1-0 amd64 0.105-33 [16.8 kB]
-#11 15.98 Get:57 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsodium23 amd64 1.0.18-1build2 [164 kB]
-#11 16.00 Get:58 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 net-tools amd64 1.60+git20181103.0eebece-1ubuntu5.4 [204 kB]
-#11 16.02 Get:59 http://archive.ubuntu.com/ubuntu jammy/main amd64 polkitd amd64 0.105-33 [80.0 kB]
-#11 16.03 Get:60 http://archive.ubuntu.com/ubuntu jammy/main amd64 pkexec amd64 0.105-33 [15.2 kB]
-#11 16.03 Get:61 http://archive.ubuntu.com/ubuntu jammy/main amd64 policykit-1 amd64 0.105-33 [2426 B]
-#11 16.12 Get:62 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 packagekit amd64 1.2.5-2ubuntu3 [442 kB]
-#11 16.38 Get:63 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 packagekit-tools amd64 1.2.5-2ubuntu3 [28.8 kB]
-#11 16.39 Get:64 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-blinker all 1.4+dfsg1-0.4 [14.0 kB]
-#11 16.39 Get:65 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-httplib2 all 0.20.2-2 [30.4 kB]
-#11 16.39 Get:66 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-jeepney all 0.7.1-3 [36.8 kB]
-#11 16.39 Get:67 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-jwt all 2.3.0-1ubuntu0.2 [17.1 kB]
-#11 16.40 Get:68 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-secretstorage all 3.3.1-1 [13.2 kB]
-#11 16.40 Get:69 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-keyring all 23.5.0-1 [35.7 kB]
-#11 16.40 Get:70 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-lazr.uri all 1.0.6-2 [14.4 kB]
-#11 16.40 Get:71 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-wadllib all 1.3.6-1 [36.4 kB]
-#11 16.65 Get:72 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-oauthlib all 3.2.0-1ubuntu0.1 [89.9 kB]
-#11 16.95 Get:73 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-lazr.restfulclient all 0.14.4-1 [51.2 kB]
-#11 16.95 Get:74 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-launchpadlib all 1.10.16-1 [125 kB]
-#11 16.96 Get:75 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3-wheel all 0.37.1-2ubuntu0.22.04.1 [32.0 kB]
-#11 16.96 Get:76 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3-pip all 22.0.2+dfsg-1ubuntu0.7 [1306 kB]
-#11 17.10 Get:77 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-software-properties all 0.99.22.9 [28.8 kB]
-#11 17.10 Get:78 http://archive.ubuntu.com/ubuntu jammy/main amd64 libattr1-dev amd64 1:2.5.1-1build1 [23.5 kB]
-#11 17.10 Get:79 http://archive.ubuntu.com/ubuntu jammy/main amd64 libacl1-dev amd64 2.3.1-1 [78.0 kB]
-#11 17.11 Get:80 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 software-properties-common all 0.99.22.9 [14.1 kB]
-#11 17.11 Get:81 http://archive.ubuntu.com/ubuntu jammy/main amd64 unattended-upgrades all 2.8ubuntu1 [49.4 kB]
-#11 17.26 Get:82 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.24 [6833 kB]
-#11 18.28 Get:83 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.24 [1728 kB]
-#11 18.63 debconf: delaying package configuration, since apt-utils is not installed
-#11 18.65 Fetched 27.0 MB in 8s (3208 kB/s)
-#11 18.67 Selecting previously unselected package libapparmor1:amd64.
-#11 18.67 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 38099 files and directories currently installed.)
-#11 18.68 Preparing to unpack .../0-libapparmor1_3.0.4-2ubuntu2.4_amd64.deb ...
-#11 18.68 Unpacking libapparmor1:amd64 (3.0.4-2ubuntu2.4) ...
-#11 18.70 Selecting previously unselected package libargon2-1:amd64.
-#11 18.70 Preparing to unpack .../1-libargon2-1_0~20171227-0.3_amd64.deb ...
-#11 18.70 Unpacking libargon2-1:amd64 (0~20171227-0.3) ...
-#11 18.72 Selecting previously unselected package libdevmapper1.02.1:amd64.
-#11 18.72 Preparing to unpack .../2-libdevmapper1.02.1_2%3a1.02.175-2.1ubuntu5_amd64.deb ...
-#11 18.72 Unpacking libdevmapper1.02.1:amd64 (2:1.02.175-2.1ubuntu5) ...
-#11 18.74 Selecting previously unselected package libjson-c5:amd64.
-#11 18.74 Preparing to unpack .../3-libjson-c5_0.15-3~ubuntu1.22.04.2_amd64.deb ...
-#11 18.74 Unpacking libjson-c5:amd64 (0.15-3~ubuntu1.22.04.2) ...
-#11 18.76 Selecting previously unselected package libcryptsetup12:amd64.
-#11 18.76 Preparing to unpack .../4-libcryptsetup12_2%3a2.4.3-1ubuntu1.3_amd64.deb ...
-#11 18.76 Unpacking libcryptsetup12:amd64 (2:2.4.3-1ubuntu1.3) ...
-#11 18.78 Selecting previously unselected package libip4tc2:amd64.
-#11 18.78 Preparing to unpack .../5-libip4tc2_1.8.7-1ubuntu5.2_amd64.deb ...
-#11 18.78 Unpacking libip4tc2:amd64 (1.8.7-1ubuntu5.2) ...
-#11 18.80 Selecting previously unselected package libkmod2:amd64.
-#11 18.80 Preparing to unpack .../6-libkmod2_29-1ubuntu1_amd64.deb ...
-#11 18.80 Unpacking libkmod2:amd64 (29-1ubuntu1) ...
-#11 18.82 Selecting previously unselected package systemd.
-#11 18.82 Preparing to unpack .../7-systemd_249.11-0ubuntu3.16_amd64.deb ...
-#11 18.84 Unpacking systemd (249.11-0ubuntu3.16) ...
-#11 18.92 Setting up libapparmor1:amd64 (3.0.4-2ubuntu2.4) ...
-#11 18.93 Setting up libargon2-1:amd64 (0~20171227-0.3) ...
-#11 18.93 Setting up libdevmapper1.02.1:amd64 (2:1.02.175-2.1ubuntu5) ...
-#11 18.94 Setting up libjson-c5:amd64 (0.15-3~ubuntu1.22.04.2) ...
-#11 18.94 Setting up libcryptsetup12:amd64 (2:2.4.3-1ubuntu1.3) ...
-#11 18.94 Setting up libip4tc2:amd64 (1.8.7-1ubuntu5.2) ...
-#11 18.95 Setting up libkmod2:amd64 (29-1ubuntu1) ...
-#11 18.95 Setting up systemd (249.11-0ubuntu3.16) ...
-#11 18.96 Created symlink /etc/systemd/system/getty.target.wants/getty@tty1.service → /lib/systemd/system/getty@.service.
-#11 18.97 Created symlink /etc/systemd/system/multi-user.target.wants/remote-fs.target → /lib/systemd/system/remote-fs.target.
-#11 18.97 Created symlink /etc/systemd/system/dbus-org.freedesktop.resolve1.service → /lib/systemd/system/systemd-resolved.service.
-#11 18.97 Created symlink /etc/systemd/system/multi-user.target.wants/systemd-resolved.service → /lib/systemd/system/systemd-resolved.service.
-#11 18.97 ln: failed to create symbolic link '/etc/resolv.conf': Device or resource busy
-#11 18.98 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-pstore.service → /lib/systemd/system/systemd-pstore.service.
-#11 18.98 Initializing machine ID from random generator.
-#11 19.15 Selecting previously unselected package systemd-sysv.
-#11 19.15 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 38912 files and directories currently installed.)
-#11 19.16 Preparing to unpack .../00-systemd-sysv_249.11-0ubuntu3.16_amd64.deb ...
-#11 19.16 Unpacking systemd-sysv (249.11-0ubuntu3.16) ...
-#11 19.18 Selecting previously unselected package dbus.
-#11 19.18 Preparing to unpack .../01-dbus_1.12.20-2ubuntu4.1_amd64.deb ...
-#11 19.19 Unpacking dbus (1.12.20-2ubuntu4.1) ...
-#11 19.22 Selecting previously unselected package dmsetup.
-#11 19.22 Preparing to unpack .../02-dmsetup_2%3a1.02.175-2.1ubuntu5_amd64.deb ...
-#11 19.22 Unpacking dmsetup (2:1.02.175-2.1ubuntu5) ...
-#11 19.24 Selecting previously unselected package libgirepository-1.0-1:amd64.
-#11 19.24 Preparing to unpack .../03-libgirepository-1.0-1_1.72.0-1_amd64.deb ...
-#11 19.24 Unpacking libgirepository-1.0-1:amd64 (1.72.0-1) ...
-#11 19.25 Selecting previously unselected package gir1.2-glib-2.0:amd64.
-#11 19.25 Preparing to unpack .../04-gir1.2-glib-2.0_1.72.0-1_amd64.deb ...
-#11 19.25 Unpacking gir1.2-glib-2.0:amd64 (1.72.0-1) ...
-#11 19.27 Selecting previously unselected package libcap2-bin.
-#11 19.27 Preparing to unpack .../05-libcap2-bin_1%3a2.44-1ubuntu0.22.04.2_amd64.deb ...
-#11 19.27 Unpacking libcap2-bin (1:2.44-1ubuntu0.22.04.2) ...
-#11 19.29 Selecting previously unselected package iputils-ping.
-#11 19.29 Preparing to unpack .../06-iputils-ping_3%3a20211215-1ubuntu0.1_amd64.deb ...
-#11 19.29 Unpacking iputils-ping (3:20211215-1ubuntu0.1) ...
-#11 19.31 Selecting previously unselected package iso-codes.
-#11 19.31 Preparing to unpack .../07-iso-codes_4.9.0-1_all.deb ...
-#11 19.31 Unpacking iso-codes (4.9.0-1) ...
-#11 19.38 Selecting previously unselected package libelf1:amd64.
-#11 19.38 Preparing to unpack .../08-libelf1_0.186-1ubuntu0.1_amd64.deb ...
-#11 19.38 Unpacking libelf1:amd64 (0.186-1ubuntu0.1) ...
-#11 19.40 Selecting previously unselected package libglib2.0-data.
-#11 19.40 Preparing to unpack .../09-libglib2.0-data_2.72.4-0ubuntu2.6_all.deb ...
-#11 19.40 Unpacking libglib2.0-data (2.72.4-0ubuntu2.6) ...
-#11 19.42 Selecting previously unselected package libnss-systemd:amd64.
-#11 19.42 Preparing to unpack .../10-libnss-systemd_249.11-0ubuntu3.16_amd64.deb ...
-#11 19.42 Unpacking libnss-systemd:amd64 (249.11-0ubuntu3.16) ...
-#11 19.44 Selecting previously unselected package libpam-cap:amd64.
-#11 19.44 Preparing to unpack .../11-libpam-cap_1%3a2.44-1ubuntu0.22.04.2_amd64.deb ...
-#11 19.45 Unpacking libpam-cap:amd64 (1:2.44-1ubuntu0.22.04.2) ...
-#11 19.46 Selecting previously unselected package libpam-systemd:amd64.
-#11 19.47 Preparing to unpack .../12-libpam-systemd_249.11-0ubuntu3.16_amd64.deb ...
-#11 19.47 Unpacking libpam-systemd:amd64 (249.11-0ubuntu3.16) ...
-#11 19.48 Selecting previously unselected package python3-gi.
-#11 19.49 Preparing to unpack .../13-python3-gi_3.42.1-0ubuntu1_amd64.deb ...
-#11 19.49 Unpacking python3-gi (3.42.1-0ubuntu1) ...
-#11 19.51 Selecting previously unselected package networkd-dispatcher.
-#11 19.51 Preparing to unpack .../14-networkd-dispatcher_2.1-2ubuntu0.22.04.2_all.deb ...
-#11 19.51 Unpacking networkd-dispatcher (2.1-2ubuntu0.22.04.2) ...
-#11 19.53 Selecting previously unselected package python-apt-common.
-#11 19.53 Preparing to unpack .../15-python-apt-common_2.4.0ubuntu4_all.deb ...
-#11 19.53 Unpacking python-apt-common (2.4.0ubuntu4) ...
-#11 19.55 Selecting previously unselected package python3-apt.
-#11 19.55 Preparing to unpack .../16-python3-apt_2.4.0ubuntu4_amd64.deb ...
-#11 19.55 Unpacking python3-apt (2.4.0ubuntu4) ...
-#11 19.57 Selecting previously unselected package systemd-timesyncd.
-#11 19.58 Preparing to unpack .../17-systemd-timesyncd_249.11-0ubuntu3.16_amd64.deb ...
-#11 19.58 Unpacking systemd-timesyncd (249.11-0ubuntu3.16) ...
-#11 19.59 Selecting previously unselected package xxd.
-#11 19.59 Preparing to unpack .../18-xxd_2%3a8.2.3995-1ubuntu2.24_amd64.deb ...
-#11 19.59 Unpacking xxd (2:8.2.3995-1ubuntu2.24) ...
-#11 19.61 Selecting previously unselected package vim-common.
-#11 19.61 Preparing to unpack .../19-vim-common_2%3a8.2.3995-1ubuntu2.24_all.deb ...
-#11 19.62 Unpacking vim-common (2:8.2.3995-1ubuntu2.24) ...
-#11 19.64 Selecting previously unselected package libusb-1.0-0:amd64.
-#11 19.64 Preparing to unpack .../20-libusb-1.0-0_2%3a1.0.25-1ubuntu2_amd64.deb ...
-#11 19.64 Unpacking libusb-1.0-0:amd64 (2:1.0.25-1ubuntu2) ...
-#11 19.66 Selecting previously unselected package python3-distro-info.
-#11 19.66 Preparing to unpack .../21-python3-distro-info_1.1ubuntu0.2_all.deb ...
-#11 19.66 Unpacking python3-distro-info (1.1ubuntu0.2) ...
-#11 19.68 Selecting previously unselected package usbutils.
-#11 19.68 Preparing to unpack .../22-usbutils_1%3a014-1build1_amd64.deb ...
-#11 19.68 Unpacking usbutils (1:014-1build1) ...
-#11 19.70 Selecting previously unselected package wget.
-#11 19.70 Preparing to unpack .../23-wget_1.21.2-2ubuntu1.1_amd64.deb ...
-#11 19.70 Unpacking wget (1.21.2-2ubuntu1.1) ...
-#11 19.72 Selecting previously unselected package acl.
-#11 19.72 Preparing to unpack .../24-acl_2.3.1-1_amd64.deb ...
-#11 19.72 Unpacking acl (2.3.1-1) ...
-#11 19.73 Selecting previously unselected package apt-transport-https.
-#11 19.74 Preparing to unpack .../25-apt-transport-https_2.4.14_all.deb ...
-#11 19.74 Unpacking apt-transport-https (2.4.14) ...
-#11 19.75 Selecting previously unselected package libhiredis0.14:amd64.
-#11 19.76 Preparing to unpack .../26-libhiredis0.14_0.14.1-2_amd64.deb ...
-#11 19.76 Unpacking libhiredis0.14:amd64 (0.14.1-2) ...
-#11 19.77 Selecting previously unselected package ccache.
-#11 19.78 Preparing to unpack .../27-ccache_4.5.1-1_amd64.deb ...
-#11 19.78 Unpacking ccache (4.5.1-1) ...
-#11 19.80 Preparing to unpack .../28-curl_7.81.0-1ubuntu1.21_amd64.deb ...
-#11 19.80 Unpacking curl (7.81.0-1ubuntu1.21) over (7.81.0-1ubuntu1.20) ...
-#11 19.82 Preparing to unpack .../29-libcurl4_7.81.0-1ubuntu1.21_amd64.deb ...
-#11 19.83 Unpacking libcurl4:amd64 (7.81.0-1ubuntu1.21) over (7.81.0-1ubuntu1.20) ...
-#11 19.85 Selecting previously unselected package libpackagekit-glib2-18:amd64.
-#11 19.85 Preparing to unpack .../30-libpackagekit-glib2-18_1.2.5-2ubuntu3_amd64.deb ...
-#11 19.86 Unpacking libpackagekit-glib2-18:amd64 (1.2.5-2ubuntu3) ...
-#11 19.87 Selecting previously unselected package gir1.2-packagekitglib-1.0.
-#11 19.87 Preparing to unpack .../31-gir1.2-packagekitglib-1.0_1.2.5-2ubuntu3_amd64.deb ...
-#11 19.87 Unpacking gir1.2-packagekitglib-1.0 (1.2.5-2ubuntu3) ...
-#11 19.89 Selecting previously unselected package libstemmer0d:amd64.
-#11 19.89 Preparing to unpack .../32-libstemmer0d_2.2.0-1build1_amd64.deb ...
-#11 19.90 Unpacking libstemmer0d:amd64 (2.2.0-1build1) ...
-#11 19.92 Selecting previously unselected package libxmlb2:amd64.
-#11 19.92 Preparing to unpack .../33-libxmlb2_0.3.6-2build1_amd64.deb ...
-#11 19.92 Unpacking libxmlb2:amd64 (0.3.6-2build1) ...
-#11 19.94 Selecting previously unselected package libappstream4:amd64.
-#11 19.94 Preparing to unpack .../34-libappstream4_0.15.2-2_amd64.deb ...
-#11 19.94 Unpacking libappstream4:amd64 (0.15.2-2) ...
-#11 19.96 Selecting previously unselected package libdw1:amd64.
-#11 19.96 Preparing to unpack .../35-libdw1_0.186-1ubuntu0.1_amd64.deb ...
-#11 19.96 Unpacking libdw1:amd64 (0.186-1ubuntu0.1) ...
-#11 19.98 Selecting previously unselected package libglib2.0-bin.
-#11 19.98 Preparing to unpack .../36-libglib2.0-bin_2.72.4-0ubuntu2.6_amd64.deb ...
-#11 19.98 Unpacking libglib2.0-bin (2.72.4-0ubuntu2.6) ...
-#11 20.00 Selecting previously unselected package libgpm2:amd64.
-#11 20.00 Preparing to unpack .../37-libgpm2_1.20.7-10build1_amd64.deb ...
-#11 20.00 Unpacking libgpm2:amd64 (1.20.7-10build1) ...
-#11 20.02 Selecting previously unselected package libunwind8:amd64.
-#11 20.02 Preparing to unpack .../38-libunwind8_1.3.2-2build2.1_amd64.deb ...
-#11 20.02 Unpacking libunwind8:amd64 (1.3.2-2build2.1) ...
-#11 20.04 Selecting previously unselected package libgstreamer1.0-0:amd64.
-#11 20.04 Preparing to unpack .../39-libgstreamer1.0-0_1.20.3-0ubuntu1.1_amd64.deb ...
-#11 20.04 Unpacking libgstreamer1.0-0:amd64 (1.20.3-0ubuntu1.1) ...
-#11 20.07 Selecting previously unselected package libpolkit-gobject-1-0:amd64.
-#11 20.07 Preparing to unpack .../40-libpolkit-gobject-1-0_0.105-33_amd64.deb ...
-#11 20.07 Unpacking libpolkit-gobject-1-0:amd64 (0.105-33) ...
-#11 20.09 Selecting previously unselected package libpolkit-agent-1-0:amd64.
-#11 20.09 Preparing to unpack .../41-libpolkit-agent-1-0_0.105-33_amd64.deb ...
-#11 20.09 Unpacking libpolkit-agent-1-0:amd64 (0.105-33) ...
-#11 20.11 Selecting previously unselected package libsodium23:amd64.
-#11 20.11 Preparing to unpack .../42-libsodium23_1.0.18-1build2_amd64.deb ...
-#11 20.11 Unpacking libsodium23:amd64 (1.0.18-1build2) ...
-#11 20.13 Selecting previously unselected package net-tools.
-#11 20.13 Preparing to unpack .../43-net-tools_1.60+git20181103.0eebece-1ubuntu5.4_amd64.deb ...
-#11 20.13 Unpacking net-tools (1.60+git20181103.0eebece-1ubuntu5.4) ...
-#11 20.15 Selecting previously unselected package polkitd.
-#11 20.15 Preparing to unpack .../44-polkitd_0.105-33_amd64.deb ...
-#11 20.15 Unpacking polkitd (0.105-33) ...
-#11 20.19 Selecting previously unselected package pkexec.
-#11 20.19 Preparing to unpack .../45-pkexec_0.105-33_amd64.deb ...
-#11 20.19 Unpacking pkexec (0.105-33) ...
-#11 20.21 Selecting previously unselected package policykit-1.
-#11 20.21 Preparing to unpack .../46-policykit-1_0.105-33_amd64.deb ...
-#11 20.22 Unpacking policykit-1 (0.105-33) ...
-#11 20.24 Selecting previously unselected package packagekit.
-#11 20.24 Preparing to unpack .../47-packagekit_1.2.5-2ubuntu3_amd64.deb ...
-#11 20.24 Unpacking packagekit (1.2.5-2ubuntu3) ...
-#11 20.26 Selecting previously unselected package packagekit-tools.
-#11 20.26 Preparing to unpack .../48-packagekit-tools_1.2.5-2ubuntu3_amd64.deb ...
-#11 20.27 Unpacking packagekit-tools (1.2.5-2ubuntu3) ...
-#11 20.29 Selecting previously unselected package python3-blinker.
-#11 20.29 Preparing to unpack .../49-python3-blinker_1.4+dfsg1-0.4_all.deb ...
-#11 20.29 Unpacking python3-blinker (1.4+dfsg1-0.4) ...
-#11 20.30 Selecting previously unselected package python3-httplib2.
-#11 20.31 Preparing to unpack .../50-python3-httplib2_0.20.2-2_all.deb ...
-#11 20.31 Unpacking python3-httplib2 (0.20.2-2) ...
-#11 20.32 Selecting previously unselected package python3-jeepney.
-#11 20.32 Preparing to unpack .../51-python3-jeepney_0.7.1-3_all.deb ...
-#11 20.33 Unpacking python3-jeepney (0.7.1-3) ...
-#11 20.34 Selecting previously unselected package python3-jwt.
-#11 20.35 Preparing to unpack .../52-python3-jwt_2.3.0-1ubuntu0.2_all.deb ...
-#11 20.35 Unpacking python3-jwt (2.3.0-1ubuntu0.2) ...
-#11 20.36 Selecting previously unselected package python3-secretstorage.
-#11 20.36 Preparing to unpack .../53-python3-secretstorage_3.3.1-1_all.deb ...
-#11 20.36 Unpacking python3-secretstorage (3.3.1-1) ...
-#11 20.38 Selecting previously unselected package python3-keyring.
-#11 20.38 Preparing to unpack .../54-python3-keyring_23.5.0-1_all.deb ...
-#11 20.39 Unpacking python3-keyring (23.5.0-1) ...
-#11 20.40 Selecting previously unselected package python3-lazr.uri.
-#11 20.40 Preparing to unpack .../55-python3-lazr.uri_1.0.6-2_all.deb ...
-#11 20.41 Unpacking python3-lazr.uri (1.0.6-2) ...
-#11 20.42 Selecting previously unselected package python3-wadllib.
-#11 20.42 Preparing to unpack .../56-python3-wadllib_1.3.6-1_all.deb ...
-#11 20.42 Unpacking python3-wadllib (1.3.6-1) ...
-#11 20.44 Selecting previously unselected package python3-oauthlib.
-#11 20.44 Preparing to unpack .../57-python3-oauthlib_3.2.0-1ubuntu0.1_all.deb ...
-#11 20.44 Unpacking python3-oauthlib (3.2.0-1ubuntu0.1) ...
-#11 20.47 Selecting previously unselected package python3-lazr.restfulclient.
-#11 20.47 Preparing to unpack .../58-python3-lazr.restfulclient_0.14.4-1_all.deb ...
-#11 20.47 Unpacking python3-lazr.restfulclient (0.14.4-1) ...
-#11 20.49 Selecting previously unselected package python3-launchpadlib.
-#11 20.49 Preparing to unpack .../59-python3-launchpadlib_1.10.16-1_all.deb ...
-#11 20.49 Unpacking python3-launchpadlib (1.10.16-1) ...
-#11 20.51 Selecting previously unselected package python3-wheel.
-#11 20.51 Preparing to unpack .../60-python3-wheel_0.37.1-2ubuntu0.22.04.1_all.deb ...
-#11 20.51 Unpacking python3-wheel (0.37.1-2ubuntu0.22.04.1) ...
-#11 20.53 Selecting previously unselected package python3-pip.
-#11 20.53 Preparing to unpack .../61-python3-pip_22.0.2+dfsg-1ubuntu0.7_all.deb ...
-#11 20.53 Unpacking python3-pip (22.0.2+dfsg-1ubuntu0.7) ...
-#11 20.58 Selecting previously unselected package python3-software-properties.
-#11 20.58 Preparing to unpack .../62-python3-software-properties_0.99.22.9_all.deb ...
-#11 20.59 Unpacking python3-software-properties (0.99.22.9) ...
-#11 20.60 Selecting previously unselected package ros-humble-iceoryx-binding-c.
-#11 20.60 Preparing to unpack .../63-ros-humble-iceoryx-binding-c_2.0.5-1jammy.20250701.012426_amd64.deb ...
-#11 20.60 Unpacking ros-humble-iceoryx-binding-c (2.0.5-1jammy.20250701.012426) ...
-#11 20.62 Selecting previously unselected package libattr1-dev:amd64.
-#11 20.63 Preparing to unpack .../64-libattr1-dev_1%3a2.5.1-1build1_amd64.deb ...
-#11 20.63 Unpacking libattr1-dev:amd64 (1:2.5.1-1build1) ...
-#11 20.64 Selecting previously unselected package libacl1-dev:amd64.
-#11 20.65 Preparing to unpack .../65-libacl1-dev_2.3.1-1_amd64.deb ...
-#11 20.65 Unpacking libacl1-dev:amd64 (2.3.1-1) ...
-#11 20.66 Selecting previously unselected package ros-humble-iceoryx-hoofs.
-#11 20.66 Preparing to unpack .../66-ros-humble-iceoryx-hoofs_2.0.5-1jammy.20250701.011506_amd64.deb ...
-#11 20.67 Unpacking ros-humble-iceoryx-hoofs (2.0.5-1jammy.20250701.011506) ...
-#11 20.69 Selecting previously unselected package ros-humble-iceoryx-posh.
-#11 20.69 Preparing to unpack .../67-ros-humble-iceoryx-posh_2.0.5-1jammy.20250701.011751_amd64.deb ...
-#11 20.69 Unpacking ros-humble-iceoryx-posh (2.0.5-1jammy.20250701.011751) ...
-#11 20.72 Selecting previously unselected package ros-humble-cyclonedds.
-#11 20.73 Preparing to unpack .../68-ros-humble-cyclonedds_0.10.5-2jammy.20250701.012606_amd64.deb ...
-#11 20.73 Unpacking ros-humble-cyclonedds (0.10.5-2jammy.20250701.012606) ...
-#11 20.76 Selecting previously unselected package ros-humble-launch-pytest.
-#11 20.76 Preparing to unpack .../69-ros-humble-launch-pytest_1.0.10-1jammy.20250718.232315_amd64.deb ...
-#11 20.76 Unpacking ros-humble-launch-pytest (1.0.10-1jammy.20250718.232315) ...
-#11 20.78 Selecting previously unselected package ros-humble-rmw-cyclonedds-cpp.
-#11 20.79 Preparing to unpack .../70-ros-humble-rmw-cyclonedds-cpp_1.3.4-1jammy.20250823.074614_amd64.deb ...
-#11 20.79 Unpacking ros-humble-rmw-cyclonedds-cpp (1.3.4-1jammy.20250823.074614) ...
-#11 20.81 Selecting previously unselected package software-properties-common.
-#11 20.81 Preparing to unpack .../71-software-properties-common_0.99.22.9_all.deb ...
-#11 20.81 Unpacking software-properties-common (0.99.22.9) ...
-#11 20.83 Selecting previously unselected package unattended-upgrades.
-#11 20.83 Preparing to unpack .../72-unattended-upgrades_2.8ubuntu1_all.deb ...
-#11 20.84 Unpacking unattended-upgrades (2.8ubuntu1) ...
-#11 20.86 Selecting previously unselected package vim-runtime.
-#11 20.86 Preparing to unpack .../73-vim-runtime_2%3a8.2.3995-1ubuntu2.24_all.deb ...
-#11 20.87 Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/doc/help.txt.vim-tiny by vim-runtime'
-#11 20.87 Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/tags.vim-tiny by vim-runtime'
-#11 20.87 Unpacking vim-runtime (2:8.2.3995-1ubuntu2.24) ...
-#11 21.03 Selecting previously unselected package vim.
-#11 21.03 Preparing to unpack .../74-vim_2%3a8.2.3995-1ubuntu2.24_amd64.deb ...
-#11 21.03 Unpacking vim (2:8.2.3995-1ubuntu2.24) ...
-#11 21.07 Setting up systemd-sysv (249.11-0ubuntu3.16) ...
-#11 21.08 Setting up net-tools (1.60+git20181103.0eebece-1ubuntu5.4) ...
-#11 21.08 Setting up libsodium23:amd64 (1.0.18-1build2) ...
-#11 21.08 Setting up libgpm2:amd64 (1.20.7-10build1) ...
-#11 21.09 Setting up wget (1.21.2-2ubuntu1.1) ...
-#11 21.09 Setting up apt-transport-https (2.4.14) ...
-#11 21.09 Setting up libattr1-dev:amd64 (1:2.5.1-1build1) ...
-#11 21.10 Setting up python3-jwt (2.3.0-1ubuntu0.2) ...
-#11 21.17 Setting up libxmlb2:amd64 (0.3.6-2build1) ...
-#11 21.18 Setting up ros-humble-launch-pytest (1.0.10-1jammy.20250718.232315) ...
-#11 21.18 Setting up libpackagekit-glib2-18:amd64 (1.2.5-2ubuntu3) ...
-#11 21.18 Setting up libnss-systemd:amd64 (249.11-0ubuntu3.16) ...
-#11 21.19 First installation detected...
-#11 21.19 Checking NSS setup...
-#11 21.19 Setting up python3-lazr.uri (1.0.6-2) ...
-#11 21.26 Setting up ros-humble-iceoryx-binding-c (2.0.5-1jammy.20250701.012426) ...
-#11 21.26 Setting up libunwind8:amd64 (1.3.2-2build2.1) ...
-#11 21.27 Setting up python3-wheel (0.37.1-2ubuntu0.22.04.1) ...
-#11 21.35 Setting up xxd (2:8.2.3995-1ubuntu2.24) ...
-#11 21.35 Setting up acl (2.3.1-1) ...
-#11 21.36 Setting up libcap2-bin (1:2.44-1ubuntu0.22.04.2) ...
-#11 21.36 Setting up libglib2.0-data (2.72.4-0ubuntu2.6) ...
-#11 21.36 Setting up vim-common (2:8.2.3995-1ubuntu2.24) ...
-#11 21.37 Setting up python3-wadllib (1.3.6-1) ...
-#11 21.45 Setting up dbus (1.12.20-2ubuntu4.1) ...
-#11 21.51 Setting up systemd-timesyncd (249.11-0ubuntu3.16) ...
-#11 21.63 Created symlink /etc/systemd/system/dbus-org.freedesktop.timesync1.service → /lib/systemd/system/systemd-timesyncd.service.
-#11 21.63 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service → /lib/systemd/system/systemd-timesyncd.service.
-#11 21.64 Setting up python3-pip (22.0.2+dfsg-1ubuntu0.7) ...
-#11 22.15 Setting up python3-jeepney (0.7.1-3) ...
-#11 22.25 Setting up python-apt-common (2.4.0ubuntu4) ...
-#11 22.25 Setting up dmsetup (2:1.02.175-2.1ubuntu5) ...
-#11 22.26 Setting up python3-httplib2 (0.20.2-2) ...
-#11 22.34 Setting up libpam-systemd:amd64 (249.11-0ubuntu3.16) ...
-#11 22.40 Setting up libcurl4:amd64 (7.81.0-1ubuntu1.21) ...
-#11 22.40 Setting up libgirepository-1.0-1:amd64 (1.72.0-1) ...
-#11 22.41 Setting up curl (7.81.0-1ubuntu1.21) ...
-#11 22.41 Setting up libusb-1.0-0:amd64 (2:1.0.25-1ubuntu2) ...
-#11 22.41 Setting up libstemmer0d:amd64 (2.2.0-1build1) ...
-#11 22.42 Setting up vim-runtime (2:8.2.3995-1ubuntu2.24) ...
-#11 22.49 Setting up libelf1:amd64 (0.186-1ubuntu0.1) ...
-#11 22.49 Setting up libpam-cap:amd64 (1:2.44-1ubuntu0.22.04.2) ...
-#11 22.55 Setting up python3-distro-info (1.1ubuntu0.2) ...
-#11 22.64 Setting up iputils-ping (3:20211215-1ubuntu0.1) ...
-#11 22.65 Setting up iso-codes (4.9.0-1) ...
-#11 22.65 Setting up libpolkit-gobject-1-0:amd64 (0.105-33) ...
-#11 22.66 Setting up libacl1-dev:amd64 (2.3.1-1) ...
-#11 22.66 Setting up libhiredis0.14:amd64 (0.14.1-2) ...
-#11 22.67 Setting up python3-blinker (1.4+dfsg1-0.4) ...
-#11 22.74 Setting up libdw1:amd64 (0.186-1ubuntu0.1) ...
-#11 22.74 Setting up vim (2:8.2.3995-1ubuntu2.24) ...
-#11 22.75 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
-#11 22.75 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
-#11 22.75 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
-#11 22.75 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
-#11 22.75 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/da/man1/vi.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/de/man1/vi.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/vi.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/it/man1/vi.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/vi.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/vi.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/vi.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.75 update-alternatives: warning: skip creation of /usr/share/man/man1/vi.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group vi) doesn't exist
-#11 22.76 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/da/man1/view.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/de/man1/view.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/view.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/it/man1/view.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/view.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/view.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/view.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/man1/view.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group view) doesn't exist
-#11 22.76 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/da/man1/ex.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/de/man1/ex.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/ex.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/it/man1/ex.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/ex.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/ex.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/ex.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/man1/ex.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group ex) doesn't exist
-#11 22.76 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/da/man1/editor.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/de/man1/editor.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/editor.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/it/man1/editor.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/editor.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/editor.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/editor.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 update-alternatives: warning: skip creation of /usr/share/man/man1/editor.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group editor) doesn't exist
-#11 22.76 Setting up python3-apt (2.4.0ubuntu4) ...
-#11 22.86 Setting up ccache (4.5.1-1) ...
-#11 22.86 Updating symlinks in /usr/lib/ccache ...
-#11 22.87 Setting up libglib2.0-bin (2.72.4-0ubuntu2.6) ...
-#11 22.87 Setting up libappstream4:amd64 (0.15.2-2) ...
-#11 22.87 Setting up usbutils (1:014-1build1) ...
-#11 22.88 Setting up unattended-upgrades (2.8ubuntu1) ...
-#11 22.95 
-#11 22.95 Creating config file /etc/apt/apt.conf.d/20auto-upgrades with new version
-#11 23.01 
-#11 23.01 Creating config file /etc/apt/apt.conf.d/50unattended-upgrades with new version
-#11 23.13 Created symlink /etc/systemd/system/multi-user.target.wants/unattended-upgrades.service → /lib/systemd/system/unattended-upgrades.service.
-#11 23.19 Setting up python3-oauthlib (3.2.0-1ubuntu0.1) ...
-#11 23.28 Setting up python3-secretstorage (3.3.1-1) ...
-#11 23.36 Setting up gir1.2-glib-2.0:amd64 (1.72.0-1) ...
-#11 23.36 Setting up python3-keyring (23.5.0-1) ...
-#11 23.44 Setting up libpolkit-agent-1-0:amd64 (0.105-33) ...
-#11 23.45 Setting up python3-lazr.restfulclient (0.14.4-1) ...
-#11 23.54 Setting up ros-humble-iceoryx-hoofs (2.0.5-1jammy.20250701.011506) ...
-#11 23.54 Setting up polkitd (0.105-33) ...
-#11 23.56 Setting up libgstreamer1.0-0:amd64 (1.20.3-0ubuntu1.1) ...
-#11 23.56 Setcap worked! gst-ptp-helper is not suid!
-#11 23.56 Setting up python3-launchpadlib (1.10.16-1) ...
-#11 23.65 Setting up pkexec (0.105-33) ...
-#11 23.65 Setting up gir1.2-packagekitglib-1.0 (1.2.5-2ubuntu3) ...
-#11 23.66 Setting up python3-gi (3.42.1-0ubuntu1) ...
-#11 23.76 Setting up ros-humble-iceoryx-posh (2.0.5-1jammy.20250701.011751) ...
-#11 23.76 Setting up policykit-1 (0.105-33) ...
-#11 23.77 Setting up networkd-dispatcher (2.1-2ubuntu0.22.04.2) ...
-#11 23.84 Created symlink /etc/systemd/system/multi-user.target.wants/networkd-dispatcher.service → /lib/systemd/system/networkd-dispatcher.service.
-#11 23.84 Setting up ros-humble-cyclonedds (0.10.5-2jammy.20250701.012606) ...
-#11 23.85 Setting up ros-humble-rmw-cyclonedds-cpp (1.3.4-1jammy.20250823.074614) ...
-#11 23.85 Setting up packagekit (1.2.5-2ubuntu3) ...
-#11 23.86 invoke-rc.d: could not determine current runlevel
-#11 23.87 invoke-rc.d: policy-rc.d denied execution of force-reload.
-#11 23.87 Failed to open connection to "system" message bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
-#11 23.94 Created symlink /etc/systemd/user/sockets.target.wants/pk-debconf-helper.socket → /usr/lib/systemd/user/pk-debconf-helper.socket.
-#11 23.94 Setting up packagekit-tools (1.2.5-2ubuntu3) ...
-#11 23.95 Processing triggers for sgml-base (1.30) ...
-#11 23.96 Processing triggers for libc-bin (2.35-0ubuntu3.10) ...
-#11 23.97 Setting up python3-software-properties (0.99.22.9) ...
-#11 24.06 Setting up software-properties-common (0.99.22.9) ...
-#11 24.14 Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
-#11 DONE 24.2s
-
-#12 [mavros base 2/4] COPY docker/scripts/build/ /build/
-#12 CACHED
-
-#13 [mavros base 3/4] COPY docker/scripts/entrypoint/ros_entrypoint.sh /ros_entrypoint.sh
-#13 CACHED
-
-#14 [mavros base 4/4] RUN chown root:root /ros_entrypoint.sh &&     chmod 755 /ros_entrypoint.sh &&     sh /build/install_depend.sh
-#14 CACHED
-
-#15 [slam slam 1/4] RUN sh /build/setup_user.sh slam 1000 1000     && mkdir -p /home/slam/hermes_ws && chown -R slam:slam /home/slam/hermes_ws
-#15 0.317 Adding group `slam' (GID 1000) ...
-#15 0.328 Done.
-#15 0.347 Adding user `slam' ...
-#15 0.347 Adding new user `slam' (1000) with group `slam' ...
-#15 0.370 Creating home directory `/home/slam' ...
-#15 0.371 Copying files from `/etc/skel' ...
-#15 DONE 0.4s
-
-#16 [mavros mavros 1/4] RUN sh /build/setup_user.sh mavros 1000 1000     && mkdir -p /home/mavros/hermes_ws && chown -R mavros:mavros /home/mavros/hermes_ws
-#16 0.317 Adding group `mavros' (GID 1000) ...
-#16 0.329 Done.
-#16 0.348 Adding user `mavros' ...
-#16 0.348 Adding new user `mavros' (1000) with group `mavros' ...
-#16 0.371 Creating home directory `/home/mavros' ...
-#16 0.371 Copying files from `/etc/skel' ...
-#16 DONE 0.4s
-
-#17 [slam slam 2/4] WORKDIR /home/slam/hermes_ws
-#17 DONE 0.0s
-
-#18 [slam slam 3/4] COPY --chown=slam:slam packages/slam_pkg /home/slam/hermes_ws/src
-#18 DONE 0.0s
-
-#19 [mavros mavros 2/4] WORKDIR /home/mavros/hermes_ws
-#19 DONE 0.0s
-
-#20 [mavros mavros 3/4] COPY --chown=mavros:mavros packages/mavros_pkg /home/mavros/hermes_ws/src
-#20 DONE 0.1s
-
-#21 [mavros mavros 4/4] RUN sh /build/init_build.sh mavros
-#21 0.272 [rosdep] already initialized, skip
-#21 0.755 Get:1 http://packages.ros.org/ros2/ubuntu jammy InRelease [4682 B]
-#21 0.862 Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
-#21 0.872 Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
-#21 1.060 Get:4 http://packages.ros.org/ros2/ubuntu jammy/main Sources [1743 kB]
-#21 2.401 Get:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
-#21 2.461 Get:6 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3371 kB]
-#21 2.773 Get:7 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
-#21 3.133 Get:8 http://packages.ros.org/ros2/ubuntu jammy/main amd64 Packages [1715 kB]
-#21 3.158 Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
-#21 4.194 Get:10 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
-#21 5.477 Get:11 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1274 kB]
-#21 5.848 Get:12 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5609 kB]
-#21 6.873 Get:13 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
-#21 6.903 Get:14 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
-#21 6.920 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5804 kB]
-#21 7.434 Get:16 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [71.0 kB]
-#21 7.738 Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [69.1 kB]
-#21 7.746 Get:18 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1577 kB]
-#21 7.968 Get:19 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3690 kB]
-#21 8.480 Get:20 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
-#21 8.483 Get:21 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
-#21 8.599 Fetched 45.4 MB in 8s (5469 kB/s)
-#21 8.599 Reading package lists...
-#21 ...
-
-#22 [slam slam 4/4] RUN sh /build/init_build.sh slam
-#22 0.303 [rosdep] already initialized, skip
-#22 0.786 Get:1 http://packages.ros.org/ros2/ubuntu jammy InRelease [4682 B]
-#22 0.855 Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
-#22 0.875 Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
-#22 1.091 Get:4 http://packages.ros.org/ros2/ubuntu jammy/main Sources [1743 kB]
-#22 2.432 Get:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
-#22 2.763 Get:6 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
-#22 2.769 Get:7 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1274 kB]
-#22 3.156 Get:8 http://packages.ros.org/ros2/ubuntu jammy/main amd64 Packages [1715 kB]
-#22 3.175 Get:9 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
-#22 3.492 Get:10 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
-#22 3.530 Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
-#22 4.467 Get:12 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
-#22 4.927 Get:13 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [5609 kB]
-#22 6.811 Get:14 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3371 kB]
-#22 7.156 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3690 kB]
-#22 7.701 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [69.1 kB]
-#22 7.702 Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [5804 kB]
-#22 7.922 Get:18 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [71.0 kB]
-#22 8.568 Get:19 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1577 kB]
-#22 8.794 Get:20 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
-#22 8.798 Get:21 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
-#22 8.851 Fetched 45.4 MB in 9s (5327 kB/s)
-#22 8.851 Reading package lists...
-#22 ...
-
-#21 [mavros mavros 4/4] RUN sh /build/init_build.sh mavros
-#21 19.15 reading in sources list data from /etc/ros/rosdep/sources.list.d
-#21 19.15 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml
-#21 19.15 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
-#21 19.15 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
-#21 19.15 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
-#21 19.15 Hit https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml
-#21 19.15 Query rosdistro index https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
-#21 19.15 Skip end-of-life distro "ardent"
-#21 19.15 Skip end-of-life distro "bouncy"
-#21 19.15 Skip end-of-life distro "crystal"
-#21 19.15 Skip end-of-life distro "dashing"
-#21 19.15 Skip end-of-life distro "eloquent"
-#21 19.15 Skip end-of-life distro "foxy"
-#21 19.15 Skip end-of-life distro "galactic"
-#21 19.15 Skip end-of-life distro "groovy"
-#21 19.15 Add distro "humble"
-#21 19.15 Skip end-of-life distro "hydro"
-#21 19.15 Skip end-of-life distro "indigo"
-#21 19.15 Skip end-of-life distro "iron"
-#21 19.15 Skip end-of-life distro "jade"
-#21 19.15 Add distro "jazzy"
-#21 19.15 Add distro "kilted"
-#21 19.15 Skip end-of-life distro "kinetic"
-#21 19.15 Skip end-of-life distro "lunar"
-#21 19.15 Skip end-of-life distro "melodic"
-#21 19.15 Skip end-of-life distro "noetic"
-#21 19.15 Add distro "rolling"
-#21 19.15 updated cache in /home/mavros/.ros/rosdep/sources.cache
-#21 ...
-
-#22 [slam slam 4/4] RUN sh /build/init_build.sh slam
-#22 19.30 reading in sources list data from /etc/ros/rosdep/sources.list.d
-#22 19.30 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml
-#22 19.30 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
-#22 19.30 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
-#22 19.30 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
-#22 19.30 Hit https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml
-#22 19.30 Query rosdistro index https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
-#22 19.30 Skip end-of-life distro "ardent"
-#22 19.30 Skip end-of-life distro "bouncy"
-#22 19.30 Skip end-of-life distro "crystal"
-#22 19.30 Skip end-of-life distro "dashing"
-#22 19.30 Skip end-of-life distro "eloquent"
-#22 19.30 Skip end-of-life distro "foxy"
-#22 19.30 Skip end-of-life distro "galactic"
-#22 19.30 Skip end-of-life distro "groovy"
-#22 19.30 Add distro "humble"
-#22 19.30 Skip end-of-life distro "hydro"
-#22 19.30 Skip end-of-life distro "indigo"
-#22 19.30 Skip end-of-life distro "iron"
-#22 19.30 Skip end-of-life distro "jade"
-#22 19.30 Add distro "jazzy"
-#22 19.30 Add distro "kilted"
-#22 19.30 Skip end-of-life distro "kinetic"
-#22 19.30 Skip end-of-life distro "lunar"
-#22 19.30 Skip end-of-life distro "melodic"
-#22 19.30 Skip end-of-life distro "noetic"
-#22 19.30 Add distro "rolling"
-#22 19.30 updated cache in /home/slam/.ros/rosdep/sources.cache
-#22 19.49 #All required rosdeps installed successfully
-#22 19.68 
-#22 19.68 Summary: 0 packages finished [0.09s]
-#22 DONE 19.7s
-
-#23 [slam] exporting to image
-#23 exporting layers
-#23 exporting layers 0.5s done
-#23 writing image sha256:1a3557ecf2e368cc49d61e72c662818a4083a0fcdb9eba9eeb5bab07b5bea50e done
-#23 naming to docker.io/hermes/slam:dev done
-#23 DONE 0.5s
-
-#24 [slam] resolving provenance for metadata file
-#24 DONE 0.0s
-
-#21 [mavros mavros 4/4] RUN sh /build/init_build.sh mavros
-#21 21.26 Reading package lists...
-#21 21.86 Building dependency tree...
-#21 21.98 Reading state information...
-#21 22.12 The following NEW packages will be installed:
-#21 22.12   ros-humble-mavlink
-#21 22.57 0 upgraded, 1 newly installed, 0 to remove and 118 not upgraded.
-#21 22.57 Need to get 1033 kB of archives.
-#21 22.57 After this operation, 22.2 MB of additional disk space will be used.
-#21 22.57 Get:1 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-mavlink amd64 2025.9.9-1jammy.20250909.183026 [1033 kB]
-#21 24.10 debconf: delaying package configuration, since apt-utils is not installed
-#21 24.13 Fetched 1033 kB in 2s (546 kB/s)
-#21 24.14 Selecting previously unselected package ros-humble-mavlink.
-#21 24.14 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 44957 files and directories currently installed.)
-#21 24.16 Preparing to unpack .../ros-humble-mavlink_2025.9.9-1jammy.20250909.183026_amd64.deb ...
-#21 24.16 Unpacking ros-humble-mavlink (2025.9.9-1jammy.20250909.183026) ...
-#21 24.27 Setting up ros-humble-mavlink (2025.9.9-1jammy.20250909.183026) ...
-#21 24.32 Reading package lists...
-#21 24.90 Building dependency tree...
-#21 25.02 Reading state information...
-#21 25.13 The following additional packages will be installed:
-#21 25.13   libgeographic19
-#21 25.13 Suggested packages:
-#21 25.13   geographiclib-doc geographiclib-tools
-#21 25.16 The following NEW packages will be installed:
-#21 25.16   libgeographic-dev libgeographic19
-#21 25.74 0 upgraded, 2 newly installed, 0 to remove and 118 not upgraded.
-#21 25.74 Need to get 693 kB of archives.
-#21 25.74 After this operation, 3366 kB of additional disk space will be used.
-#21 25.74 Get:1 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libgeographic19 amd64 1.52-1 [258 kB]
-#21 27.38 Get:2 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libgeographic-dev amd64 1.52-1 [435 kB]
-#21 27.86 debconf: delaying package configuration, since apt-utils is not installed
-#21 27.89 Fetched 693 kB in 3s (266 kB/s)
-#21 27.90 Selecting previously unselected package libgeographic19:amd64.
-#21 27.90 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46280 files and directories currently installed.)
-#21 27.91 Preparing to unpack .../libgeographic19_1.52-1_amd64.deb ...
-#21 27.92 Unpacking libgeographic19:amd64 (1.52-1) ...
-#21 27.93 Selecting previously unselected package libgeographic-dev.
-#21 27.94 Preparing to unpack .../libgeographic-dev_1.52-1_amd64.deb ...
-#21 27.94 Unpacking libgeographic-dev (1.52-1) ...
-#21 27.97 Setting up libgeographic19:amd64 (1.52-1) ...
-#21 27.98 Setting up libgeographic-dev (1.52-1) ...
-#21 27.98 Processing triggers for libc-bin (2.35-0ubuntu3.10) ...
-#21 28.04 Reading package lists...
-#21 28.60 Building dependency tree...
-#21 28.72 Reading state information...
-#21 28.84 Suggested packages:
-#21 28.84   proj-bin geographiclib-doc
-#21 28.85 The following NEW packages will be installed:
-#21 28.86   geographiclib-tools
-#21 29.43 0 upgraded, 1 newly installed, 0 to remove and 118 not upgraded.
-#21 29.43 Need to get 180 kB of archives.
-#21 29.43 After this operation, 732 kB of additional disk space will be used.
-#21 29.43 Get:1 http://archive.ubuntu.com/ubuntu jammy/universe amd64 geographiclib-tools amd64 1.52-1 [180 kB]
-#21 30.66 debconf: delaying package configuration, since apt-utils is not installed
-#21 30.69 Fetched 180 kB in 2s (105 kB/s)
-#21 30.70 Selecting previously unselected package geographiclib-tools.
-#21 30.70 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46387 files and directories currently installed.)
-#21 30.71 Preparing to unpack .../geographiclib-tools_1.52-1_amd64.deb ...
-#21 30.71 Unpacking geographiclib-tools (1.52-1) ...
-#21 30.74 Setting up geographiclib-tools (1.52-1) ...
-#21 30.78 Reading package lists...
-#21 31.34 Building dependency tree...
-#21 31.46 Reading state information...
-#21 31.59 The following NEW packages will be installed:
-#21 31.59   ros-humble-diagnostic-updater
-#21 32.09 0 upgraded, 1 newly installed, 0 to remove and 118 not upgraded.
-#21 32.09 Need to get 100 kB of archives.
-#21 32.09 After this operation, 393 kB of additional disk space will be used.
-#21 32.09 Get:1 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-diagnostic-updater amd64 4.0.6-1jammy.20250915.214728 [100 kB]
-#21 33.09 debconf: delaying package configuration, since apt-utils is not installed
-#21 33.11 Fetched 100 kB in 1s (70.5 kB/s)
-#21 33.13 Selecting previously unselected package ros-humble-diagnostic-updater.
-#21 33.13 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46422 files and directories currently installed.)
-#21 33.14 Preparing to unpack .../ros-humble-diagnostic-updater_4.0.6-1jammy.20250915.214728_amd64.deb ...
-#21 33.14 Unpacking ros-humble-diagnostic-updater (4.0.6-1jammy.20250915.214728) ...
-#21 33.17 Setting up ros-humble-diagnostic-updater (4.0.6-1jammy.20250915.214728) ...
-#21 33.21 Reading package lists...
-#21 33.78 Building dependency tree...
-#21 33.90 Reading state information...
-#21 34.04 The following NEW packages will be installed:
-#21 34.04   ros-humble-eigen-stl-containers
-#21 34.55 0 upgraded, 1 newly installed, 0 to remove and 118 not upgraded.
-#21 34.55 Need to get 10.1 kB of archives.
-#21 34.55 After this operation, 64.5 kB of additional disk space will be used.
-#21 34.55 Get:1 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-eigen-stl-containers amd64 1.1.0-1jammy.20250701.022309 [10.1 kB]
-#21 34.64 debconf: delaying package configuration, since apt-utils is not installed
-#21 34.66 Fetched 10.1 kB in 1s (19.7 kB/s)
-#21 34.67 Selecting previously unselected package ros-humble-eigen-stl-containers.
-#21 34.67 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46471 files and directories currently installed.)
-#21 34.69 Preparing to unpack .../ros-humble-eigen-stl-containers_1.1.0-1jammy.20250701.022309_amd64.deb ...
-#21 34.69 Unpacking ros-humble-eigen-stl-containers (1.1.0-1jammy.20250701.022309) ...
-#21 34.71 Setting up ros-humble-eigen-stl-containers (1.1.0-1jammy.20250701.022309) ...
-#21 34.76 Reading package lists...
-#21 35.33 Building dependency tree...
-#21 35.46 Reading state information...
-#21 35.58 The following NEW packages will be installed:
-#21 35.58   ros-humble-geographic-msgs
-#21 36.08 0 upgraded, 1 newly installed, 0 to remove and 118 not upgraded.
-#21 36.08 Need to get 207 kB of archives.
-#21 36.08 After this operation, 3197 kB of additional disk space will be used.
-#21 36.08 Get:1 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-geographic-msgs amd64 1.0.6-1jammy.20250823.083805 [207 kB]
-#21 37.40 debconf: delaying package configuration, since apt-utils is not installed
-#21 37.42 Fetched 207 kB in 2s (119 kB/s)
-#21 37.44 Selecting previously unselected package ros-humble-geographic-msgs.
-#21 37.44 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46501 files and directories currently installed.)
-#21 37.45 Preparing to unpack .../ros-humble-geographic-msgs_1.0.6-1jammy.20250823.083805_amd64.deb ...
-#21 37.45 Unpacking ros-humble-geographic-msgs (1.0.6-1jammy.20250823.083805) ...
-#21 37.51 Setting up ros-humble-geographic-msgs (1.0.6-1jammy.20250823.083805) ...
-#21 37.51 Processing triggers for libc-bin (2.35-0ubuntu3.10) ...
-#21 37.56 Reading package lists...
-#21 38.13 Building dependency tree...
-#21 38.25 Reading state information...
-#21 38.36 The following additional packages will be installed:
-#21 38.36   python3-colorama
-#21 38.38 The following NEW packages will be installed:
-#21 38.38   python3-click python3-colorama
-#21 39.05 0 upgraded, 2 newly installed, 0 to remove and 118 not upgraded.
-#21 39.05 Need to get 103 kB of archives.
-#21 39.05 After this operation, 468 kB of additional disk space will be used.
-#21 39.05 Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-colorama all 0.4.4-1 [24.5 kB]
-#21 40.18 Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-click all 8.0.3-1 [78.3 kB]
-#21 40.79 debconf: delaying package configuration, since apt-utils is not installed
-#21 40.82 Fetched 103 kB in 2s (44.4 kB/s)
-#21 40.84 Selecting previously unselected package python3-colorama.
-#21 40.84 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 47003 files and directories currently installed.)
-#21 40.86 Preparing to unpack .../python3-colorama_0.4.4-1_all.deb ...
-#21 40.86 Unpacking python3-colorama (0.4.4-1) ...
-#21 40.88 Selecting previously unselected package python3-click.
-#21 40.88 Preparing to unpack .../python3-click_8.0.3-1_all.deb ...
-#21 40.88 Unpacking python3-click (8.0.3-1) ...
-#21 40.90 Setting up python3-colorama (0.4.4-1) ...
-#21 40.98 Setting up python3-click (8.0.3-1) ...
-#21 41.11 Reading package lists...
-#21 41.70 Building dependency tree...
-#21 41.83 Reading state information...
-#21 41.95 The following NEW packages will be installed:
-#21 41.95   ros-humble-angles
-#21 42.44 0 upgraded, 1 newly installed, 0 to remove and 118 not upgraded.
-#21 42.44 Need to get 14.3 kB of archives.
-#21 42.44 After this operation, 92.2 kB of additional disk space will be used.
-#21 42.44 Get:1 http://packages.ros.org/ros2/ubuntu jammy/main amd64 ros-humble-angles amd64 1.15.0-1jammy.20250701.021637 [14.3 kB]
-#21 42.53 debconf: delaying package configuration, since apt-utils is not installed
-#21 42.55 Fetched 14.3 kB in 0s (29.6 kB/s)
-#21 42.56 Selecting previously unselected package ros-humble-angles.
-#21 42.56 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 47058 files and directories currently installed.)
-#21 42.58 Preparing to unpack .../ros-humble-angles_1.15.0-1jammy.20250701.021637_amd64.deb ...
-#21 42.58 Unpacking ros-humble-angles (1.15.0-1jammy.20250701.021637) ...
-#21 42.61 Setting up ros-humble-angles (1.15.0-1jammy.20250701.021637) ...
-#21 42.65 Reading package lists...
-#21 43.23 Building dependency tree...
-#21 43.35 Reading state information...
-#21 43.47 The following additional packages will be installed:
-#21 43.47   icu-devtools libboost-date-time-dev libboost-date-time1.74-dev
-#21 43.47   libboost-date-time1.74.0 libboost-dev libboost-regex-dev
-#21 43.47   libboost-regex1.74-dev libboost-regex1.74.0 libboost-serialization1.74-dev
-#21 43.47   libboost-serialization1.74.0 libboost1.74-dev libicu-dev
-#21 43.47 Suggested packages:
-#21 43.47   libboost-doc libboost1.74-doc libboost-atomic1.74-dev
-#21 43.47   libboost-chrono1.74-dev libboost-container1.74-dev libboost-context1.74-dev
-#21 43.47   libboost-contract1.74-dev libboost-coroutine1.74-dev
-#21 43.47   libboost-exception1.74-dev libboost-fiber1.74-dev
-#21 43.47   libboost-filesystem1.74-dev libboost-graph1.74-dev
-#21 43.47   libboost-graph-parallel1.74-dev libboost-iostreams1.74-dev
-#21 43.47   libboost-locale1.74-dev libboost-log1.74-dev libboost-math1.74-dev
-#21 43.47   libboost-mpi1.74-dev libboost-mpi-python1.74-dev libboost-numpy1.74-dev
-#21 43.47   libboost-program-options1.74-dev libboost-python1.74-dev
-#21 43.47   libboost-random1.74-dev libboost-stacktrace1.74-dev libboost-system1.74-dev
-#21 43.47   libboost-test1.74-dev libboost-thread1.74-dev libboost-timer1.74-dev
-#21 43.47   libboost-type-erasure1.74-dev libboost-wave1.74-dev libboost1.74-tools-dev
-#21 43.47   libmpfrc++-dev libntl-dev libboost-nowide1.74-dev icu-doc
-#21 43.49 The following NEW packages will be installed:
-#21 43.49   icu-devtools libasio-dev libboost-date-time-dev libboost-date-time1.74-dev
-#21 43.49   libboost-date-time1.74.0 libboost-dev libboost-regex-dev
-#21 43.49   libboost-regex1.74-dev libboost-regex1.74.0 libboost-serialization1.74-dev
-#21 43.49   libboost-serialization1.74.0 libboost1.74-dev libicu-dev
-#21 44.07 0 upgraded, 13 newly installed, 0 to remove and 118 not upgraded.
-#21 44.07 Need to get 24.0 MB of archives.
-#21 44.07 After this operation, 213 MB of additional disk space will be used.
-#21 44.07 Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 icu-devtools amd64 70.1-2 [197 kB]
-#21 45.40 Get:2 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libasio-dev all 1:1.18.1-1 [352 kB]
-#21 45.72 Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost1.74-dev amd64 1.74.0-14ubuntu3 [9609 kB]
-#21 47.18 Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-date-time1.74.0 amd64 1.74.0-14ubuntu3 [221 kB]
-#21 47.19 Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-serialization1.74.0 amd64 1.74.0-14ubuntu3 [327 kB]
-#21 47.26 Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-serialization1.74-dev amd64 1.74.0-14ubuntu3 [375 kB]
-#21 47.28 Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-date-time1.74-dev amd64 1.74.0-14ubuntu3 [226 kB]
-#21 47.30 Get:8 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libboost-date-time-dev amd64 1.74.0.3ubuntu7 [3248 B]
-#21 47.30 Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-dev amd64 1.74.0.3ubuntu7 [3490 B]
-#21 47.30 Get:10 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-regex1.74.0 amd64 1.74.0-14ubuntu3 [511 kB]
-#21 47.36 Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libicu-dev amd64 70.1-2 [11.6 MB]
-#21 48.55 Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-regex1.74-dev amd64 1.74.0-14ubuntu3 [596 kB]
-#21 48.61 Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 libboost-regex-dev amd64 1.74.0.3ubuntu7 [3510 B]
-#21 48.70 debconf: delaying package configuration, since apt-utils is not installed
-#21 48.72 Fetched 24.0 MB in 5s (4705 kB/s)
-#21 48.73 Selecting previously unselected package icu-devtools.
-#21 48.73 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 47093 files and directories currently installed.)
-#21 48.74 Preparing to unpack .../00-icu-devtools_70.1-2_amd64.deb ...
-#21 48.75 Unpacking icu-devtools (70.1-2) ...
-#21 48.76 Selecting previously unselected package libasio-dev.
-#21 48.76 Preparing to unpack .../01-libasio-dev_1%3a1.18.1-1_all.deb ...
-#21 48.77 Unpacking libasio-dev (1:1.18.1-1) ...
-#21 48.81 Selecting previously unselected package libboost1.74-dev:amd64.
-#21 48.82 Preparing to unpack .../02-libboost1.74-dev_1.74.0-14ubuntu3_amd64.deb ...
-#21 48.82 Unpacking libboost1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.59 Selecting previously unselected package libboost-date-time1.74.0:amd64.
-#21 49.60 Preparing to unpack .../03-libboost-date-time1.74.0_1.74.0-14ubuntu3_amd64.deb ...
-#21 49.60 Unpacking libboost-date-time1.74.0:amd64 (1.74.0-14ubuntu3) ...
-#21 49.62 Selecting previously unselected package libboost-serialization1.74.0:amd64.
-#21 49.63 Preparing to unpack .../04-libboost-serialization1.74.0_1.74.0-14ubuntu3_amd64.deb ...
-#21 49.63 Unpacking libboost-serialization1.74.0:amd64 (1.74.0-14ubuntu3) ...
-#21 49.65 Selecting previously unselected package libboost-serialization1.74-dev:amd64.
-#21 49.65 Preparing to unpack .../05-libboost-serialization1.74-dev_1.74.0-14ubuntu3_amd64.deb ...
-#21 49.66 Unpacking libboost-serialization1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.68 Selecting previously unselected package libboost-date-time1.74-dev:amd64.
-#21 49.68 Preparing to unpack .../06-libboost-date-time1.74-dev_1.74.0-14ubuntu3_amd64.deb ...
-#21 49.68 Unpacking libboost-date-time1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.70 Selecting previously unselected package libboost-date-time-dev:amd64.
-#21 49.70 Preparing to unpack .../07-libboost-date-time-dev_1.74.0.3ubuntu7_amd64.deb ...
-#21 49.70 Unpacking libboost-date-time-dev:amd64 (1.74.0.3ubuntu7) ...
-#21 49.72 Selecting previously unselected package libboost-dev:amd64.
-#21 49.72 Preparing to unpack .../08-libboost-dev_1.74.0.3ubuntu7_amd64.deb ...
-#21 49.72 Unpacking libboost-dev:amd64 (1.74.0.3ubuntu7) ...
-#21 49.74 Selecting previously unselected package libboost-regex1.74.0:amd64.
-#21 49.75 Preparing to unpack .../09-libboost-regex1.74.0_1.74.0-14ubuntu3_amd64.deb ...
-#21 49.75 Unpacking libboost-regex1.74.0:amd64 (1.74.0-14ubuntu3) ...
-#21 49.77 Selecting previously unselected package libicu-dev:amd64.
-#21 49.77 Preparing to unpack .../10-libicu-dev_70.1-2_amd64.deb ...
-#21 49.77 Unpacking libicu-dev:amd64 (70.1-2) ...
-#21 49.88 Selecting previously unselected package libboost-regex1.74-dev:amd64.
-#21 49.89 Preparing to unpack .../11-libboost-regex1.74-dev_1.74.0-14ubuntu3_amd64.deb ...
-#21 49.89 Unpacking libboost-regex1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.91 Selecting previously unselected package libboost-regex-dev:amd64.
-#21 49.92 Preparing to unpack .../12-libboost-regex-dev_1.74.0.3ubuntu7_amd64.deb ...
-#21 49.92 Unpacking libboost-regex-dev:amd64 (1.74.0.3ubuntu7) ...
-#21 49.94 Setting up libboost1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.95 Setting up libboost-regex1.74.0:amd64 (1.74.0-14ubuntu3) ...
-#21 49.95 Setting up icu-devtools (70.1-2) ...
-#21 49.95 Setting up libboost-serialization1.74.0:amd64 (1.74.0-14ubuntu3) ...
-#21 49.96 Setting up libboost-dev:amd64 (1.74.0.3ubuntu7) ...
-#21 49.96 Setting up libasio-dev (1:1.18.1-1) ...
-#21 49.96 Setting up libboost-date-time1.74.0:amd64 (1.74.0-14ubuntu3) ...
-#21 49.97 Setting up libicu-dev:amd64 (70.1-2) ...
-#21 49.97 Setting up libboost-serialization1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.97 Setting up libboost-regex1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.98 Setting up libboost-regex-dev:amd64 (1.74.0.3ubuntu7) ...
-#21 49.98 Setting up libboost-date-time1.74-dev:amd64 (1.74.0-14ubuntu3) ...
-#21 49.98 Setting up libboost-date-time-dev:amd64 (1.74.0.3ubuntu7) ...
-#21 49.99 Processing triggers for libc-bin (2.35-0ubuntu3.10) ...
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y ros-humble-mavlink][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y libgeographic-dev][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y geographiclib-tools][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y ros-humble-diagnostic-updater][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y ros-humble-eigen-stl-containers][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y ros-humble-geographic-msgs][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y python3-click][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y ros-humble-angles][0m
-#21 50.09 [1mexecuting command [sudo -H apt-get install -y libasio-dev][0m
-#21 50.09 #All required rosdeps installed successfully
-#21 50.30 Starting >>> libmavconn
-#21 50.30 Starting >>> mavros_msgs
-#21 56.60 Finished <<< libmavconn [6.31s]
-#21 110.3 [Processing: mavros_msgs]
-#21 110.3 Finished <<< mavros_msgs [1min 0s]
-#21 110.3 Starting >>> mavros
-#21 164.6 [Processing: mavros]
-#21 164.6 Finished <<< mavros [54.2s]
-#21 164.6 Starting >>> mavros_extras
-#21 220.2 [Processing: mavros_extras]
-#21 220.2 Finished <<< mavros_extras [55.6s]
-#21 220.4 
-#21 220.4 Summary: 4 packages finished [2min 50s]
-#21 DONE 220.6s
-
-#25 [mavros] exporting to image
-#25 exporting layers
-#25 exporting layers 6.1s done
-#25 writing image sha256:4d9dbe646c562a18c7cfeadb816e9329f873a1032992a54abe0139cc854aec17 done
-#25 naming to docker.io/hermes/mavros:dev done
-#25 DONE 6.1s
-
-#26 [mavros] resolving provenance for metadata file
-#26 DONE 0.0s
