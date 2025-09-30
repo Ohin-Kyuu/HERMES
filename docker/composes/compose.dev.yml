@@ -12,9 +12,9 @@ x-common-env: &env
   
 volumes:
   mavros_build: {}
-  mavros_devel: {}
+  mavros_install: {}
   slam_build: {}
-  slam_devel: {}
+  slam_install: {}
 
 services:
   mavros:
@@ -36,7 +36,7 @@ services:
       <<: *env
     volumes:
       - mavros_build:/home/mavros/hermes_ws/build
-      - mavros_devel:/home/mavros/hermes_ws/devel
+      - mavros_install:/home/mavros/hermes_ws/install
       - ../../packages/mavros_pkg:/home/mavros/hermes_ws/src
     command: bash
 
@@ -57,6 +57,6 @@ services:
       <<: *env
     volumes:
       - slam_build:/home/slam/hermes_ws/build
-      - slam_devel:/home/slam/hermes_ws/devel
+      - slam_install:/home/slam/hermes_ws/install
       - ../../packages/slam_pkg:/home/slam/hermes_ws/src
     command: bash

@@ -27,9 +27,10 @@ ENTRYPOINT [ "/ros_entrypoint.sh" ]
 WORKDIR ${ROS_WS}
 COPY --chown=${USER}:${USER} packages/mavros_pkg ${ROS_WS}/src
 USER $USER
-RUN sh /build/init_build.sh ${USER} \
+RUN sh /build/rosdep_init.sh ${USER} \
     && cd ${ROS_WS}/src/mavros/scripts \
-    && sudo ./install_geographiclib_datasets.sh
+    && sudo ./install_geographiclib_datasets.sh \
+    && sh /build/colcon_build.sh ${USER}
 CMD [ "/bin/bash" ]
 
 FROM base AS slam
@@ -45,7 +46,8 @@ ENTRYPOINT [ "/ros_entrypoint.sh" ]
 WORKDIR ${ROS_WS}
 COPY --chown=${USER}:${USER} packages/slam_pkg ${ROS_WS}/src
 USER $USER
-# RUN sh /build/init_build.sh ${USER} \
-#     && cd ${ROS_WS}/src/livox_ros_driver2 \
-#     && sudo ./build.sh humble
+RUN sh /build/rosdep_init.sh ${USER} \
+    && cd ${ROS_WS}/src/livox_ros_driver2 \
+    && ./build.sh humble \
+    && sh /build/colcon_build.sh ${USER}
 CMD [ "/bin/bash" ]

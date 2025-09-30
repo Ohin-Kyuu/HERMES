@@ -15,6 +15,3 @@ fi
 sudo apt-get update
 rosdep update
 rosdep install --from-paths ${ROS_WS}/src --rosdistro humble -y --ignore-src
-cd ${ROS_WS}
-colcon build --symlink-install
-echo "source ${ROS_WS}/install/setup.bash" >> /home/${USER}/.bashrc
