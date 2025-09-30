@@ -1,0 +1,11 @@
+[submodule "packages/mavros_pkg"]
+	path = packages/mavros_pkg
+	url = https://github.com/mavlink/mavros
+	branch = ros2
+[submodule "packages/slam_pkg/livox_ros_driver2"]
+	path = packages/slam_pkg/livox_ros_driver2
+	url = https://github.com/Livox-SDK/livox_ros_driver2.git
+[submodule "packages/slam_pkg/fast_lio2"]
+	path = packages/slam_pkg/fast_lio2
+	url = https://github.com/Ericsii/FAST_LIO_ROS2
+	branch = ros2
