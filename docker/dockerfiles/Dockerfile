@@ -21,16 +21,15 @@ ARG USER
 ARG USER_UID
 ARG USER_GID
 ENV ROS_WS=/home/${USER}/hermes_ws
-RUN sh /build/setup_user.sh ${USER} ${USER_UID} ${USER_GID} \
-    && mkdir -p ${ROS_WS} && chown -R ${USER}:${USER} ${ROS_WS}
+RUN sh /build/setup_user.sh ${USER} ${USER_UID} ${USER_GID}
 ENTRYPOINT [ "/ros_entrypoint.sh" ]
 WORKDIR ${ROS_WS}
-COPY --chown=${USER}:${USER} packages/mavros_pkg ${ROS_WS}/src
-USER $USER
+COPY packages/mavros_pkg ${ROS_WS}/src
 RUN sh /build/rosdep_init.sh ${USER} \
     && cd ${ROS_WS}/src/mavros/scripts \
-    && sudo ./install_geographiclib_datasets.sh \
+    && ./install_geographiclib_datasets.sh \
     && sh /build/colcon_build.sh ${USER}
+USER $USER
 VOLUME ${ROS_WS}/install
 CMD [ "/bin/bash" ]
 
@@ -41,16 +40,15 @@ ARG USER_GID
 ENV ROS_WS=/home/${USER}/hermes_ws
 COPY --from=livox-build /usr/local/lib/liblivox_lidar_sdk_* /usr/local/lib/
 COPY --from=livox-build /usr/local/include/livox_lidar_* /usr/local/include/
-RUN sh /build/setup_user.sh ${USER} ${USER_UID} ${USER_GID} \
-    && mkdir -p ${ROS_WS} && chown -R ${USER}:${USER} ${ROS_WS}
+RUN sh /build/setup_user.sh ${USER} ${USER_UID} ${USER_GID}
 ENTRYPOINT [ "/ros_entrypoint.sh" ]
 WORKDIR ${ROS_WS}
-COPY --chown=${USER}:${USER} packages/slam_pkg ${ROS_WS}/src
-USER $USER
+COPY packages/slam_pkg ${ROS_WS}/src
 RUN sh /build/rosdep_init.sh ${USER} \
     && cd ${ROS_WS}/src/livox_ros_driver2 \
-    && ./build.sh humble \
+    && bash -c "source /opt/ros/humble/setup.bash && ./build.sh humble" \
     && cd ${ROS_WS} \
     && sh /build/colcon_build.sh ${USER}
+USER $USER
 VOLUME ${ROS_WS}/install
 CMD [ "/bin/bash" ]

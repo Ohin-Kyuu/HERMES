@@ -21,7 +21,8 @@ services:
         USER: mavros
         USER_UID: ${UID}
         USER_GID: ${GID}
-    image: hermes/mavros:dev
+    # image: hermes/mavros:dev
+    image: ohin112/mavros-ros2:latest
     container_name: mavros
     <<: *var
     group_add: ["dialout","plugdev"]
@@ -48,7 +49,8 @@ services:
         USER: slam
         USER_UID: ${UID}
         USER_GID: ${GID}
-    image: hermes/slam:dev
+    # image: hermes/slam:dev
+    image: ohin112/slam-ros2:latest
     container_name: slam
     <<: *var
     group_add: ["video"]

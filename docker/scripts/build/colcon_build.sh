@@ -6,5 +6,6 @@ ROS_WS=/home/${USER}/hermes_ws
 
 . "/opt/ros/humble/setup.sh"
 cd ${ROS_WS}
-colcon build --symlink-install
+colcon build
+chown -R ${USER}:${USER} ${ROS_WS}
 echo "source ${ROS_WS}/install/setup.bash" >> /home/${USER}/.bashrc

@@ -12,6 +12,6 @@ else
     echo "[rosdep] already initialized, skip"
 fi
 
-sudo apt-get update
+apt-get update
 rosdep update
 rosdep install --from-paths ${ROS_WS}/src --rosdistro humble -y --ignore-src
