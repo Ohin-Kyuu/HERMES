@@ -6,5 +6,5 @@ ROS_WS=/home/${USER}/hermes_ws
 
 . "/opt/ros/humble/setup.sh"
 cd ${ROS_WS}
-colcon build --symlink-install --packages-skip livox_ros_driver2
+colcon build --symlink-install
 echo "source ${ROS_WS}/install/setup.bash" >> /home/${USER}/.bashrc

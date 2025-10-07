@@ -31,6 +31,7 @@ RUN sh /build/rosdep_init.sh ${USER} \
     && cd ${ROS_WS}/src/mavros/scripts \
     && sudo ./install_geographiclib_datasets.sh \
     && sh /build/colcon_build.sh ${USER}
+VOLUME ${ROS_WS}/install
 CMD [ "/bin/bash" ]
 
 FROM base AS slam
@@ -49,5 +50,7 @@ USER $USER
 RUN sh /build/rosdep_init.sh ${USER} \
     && cd ${ROS_WS}/src/livox_ros_driver2 \
     && ./build.sh humble \
+    && cd ${ROS_WS} \
     && sh /build/colcon_build.sh ${USER}
+VOLUME ${ROS_WS}/install
 CMD [ "/bin/bash" ]

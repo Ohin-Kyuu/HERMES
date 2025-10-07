@@ -1,3 +1,4 @@
+name: hermes
 x-common-vars: &var
   tty: true
   stdin_open: true
@@ -9,12 +10,6 @@ x-common-vars: &var
 x-common-env: &env
   RMW_IMPLEMENTATION: rmw_cyclonedds_cpp 
   ROS_DOMAIN_ID: $ROS_DOMAIN_ID
-  
-volumes:
-  mavros_build: {}
-  mavros_install: {}
-  slam_build: {}
-  slam_install: {}
 
 services:
   mavros:
@@ -35,9 +30,13 @@ services:
     environment:
       <<: *env
     volumes:
-      - mavros_build:/home/mavros/hermes_ws/build
-      - mavros_install:/home/mavros/hermes_ws/install
       - ../../packages/mavros_pkg:/home/mavros/hermes_ws/src
+      - type: volume
+        source: mavros_install
+        target: /home/mavros/hermes_ws/install
+      - type: volume
+        source: mavros_build
+        target: /home/mavros/hermes_ws/build
     command: bash
 
   slam:
@@ -56,7 +55,17 @@ services:
     environment:
       <<: *env
     volumes:
-      - slam_build:/home/slam/hermes_ws/build
-      - slam_install:/home/slam/hermes_ws/install
       - ../../packages/slam_pkg:/home/slam/hermes_ws/src
+      - type: volume
+        source: slam_install
+        target: /home/slam/hermes_ws/install
+      - type: volume
+        source: slam_build
+        target: /home/slam/hermes_ws/build
     command: bash
+
+volumes:
+  mavros_install: {}
+  mavros_build: {}
+  slam_install: {}
+  slam_build: {}
