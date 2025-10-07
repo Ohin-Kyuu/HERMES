@@ -1,10 +1,3 @@
-[submodule "packages/slam_pkg/livox_ros_driver2"]
-	path = packages/slam_pkg/livox_ros_driver2
-	url = https://github.com/Livox-SDK/livox_ros_driver2.git
-[submodule "packages/slam_pkg/fast_lio2"]
-	path = packages/slam_pkg/fast_lio2
-	url = https://github.com/Ericsii/FAST_LIO_ROS2
-	branch = ros2
 [submodule "packages/mavros_pkg/mavros"]
 	path = packages/mavros_pkg/mavros
 	url = https://github.com/mavlink/mavros.git
@@ -12,3 +5,10 @@
 [submodule "packages/mavros_pkg/xrce_dds"]
 	path = packages/mavros_pkg/xrce_dds
 	url = https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+[submodule "packages/slam_pkg/livox_ros_driver2"]
+	path = packages/slam_pkg/livox_ros_driver2
+	url = https://github.com/Livox-SDK/livox_ros_driver2.git
+[submodule "packages/slam_pkg/fast_lio2"]
+	path = packages/slam_pkg/fast_lio2
+	url = https://github.com/Ericsii/FAST_LIO_ROS2
+	branch = ros2
