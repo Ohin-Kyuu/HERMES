@@ -27,6 +27,7 @@ buildx:
 		--build-arg USER=mavros \
 		--build-arg USER_UID=$(UID) \
 		--build-arg USER_GID=$(GID) \
+		--build-arg PARALLEL=2 \
 		-t ohin112/mavros-ros2:latest \
 		--push .
 

@@ -31,7 +31,7 @@ services:
     environment:
       <<: *env
     volumes:
-      - ../../packages/mavros_pkg:/home/mavros/hermes_ws/src
+      - ../../packages/mavros_pkg/mavros:/home/mavros/hermes_ws/src/mavros
       - type: volume
         source: mavros_install
         target: /home/mavros/hermes_ws/install

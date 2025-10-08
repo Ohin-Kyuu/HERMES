@@ -8,12 +8,20 @@ RUN chown root:root /ros_entrypoint.sh && \
     chmod 755 /ros_entrypoint.sh && \
     sh /build/install_depend.sh
 
+FROM base AS xrce-dds
+RUN git clone -b v3.0.1 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git \
+    && cd ./Micro-XRCE-DDS-Agent \
+    && mkdir build \
+    && cd build \
+    && cmake .. && make -j4 \
+    && make install
+    
 FROM base AS livox-build
 RUN git clone https://github.com/Livox-SDK/Livox-SDK2.git \
     && cd ./Livox-SDK2 \
     && mkdir build \
     && cd build \
-    && cmake .. && make -j \
+    && cmake .. && make -j4 \
     && make install
 
 FROM base AS mavros
@@ -24,9 +32,12 @@ ENV ROS_WS=/home/${USER}/hermes_ws
 RUN sh /build/setup_user.sh ${USER} ${USER_UID} ${USER_GID}
 ENTRYPOINT [ "/ros_entrypoint.sh" ]
 WORKDIR ${ROS_WS}
+COPY --from=xrce-dds /usr/local/bin/MicroXRCEAgent /usr/local/bin/
+COPY --from=xrce-dds /usr/local/lib/ /usr/local/lib/
 COPY packages/mavros_pkg ${ROS_WS}/src
-RUN sh /build/rosdep_init.sh ${USER} \
-    && cd ${ROS_WS}/src/mavros/scripts \
+RUN ldconfig /usr/local/lib \
+    && sh /build/rosdep_init.sh ${USER} \
+    && cd ${ROS_WS}/src/mavros/mavros/scripts \
     && ./install_geographiclib_datasets.sh \
     && sh /build/colcon_build.sh ${USER}
 USER $USER
