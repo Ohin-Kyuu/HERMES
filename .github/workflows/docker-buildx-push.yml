@@ -12,7 +12,7 @@ concurrency:
 jobs:
   buildx:
     runs-on: ubuntu-latest
-    if: contains(toLower(github.event.head_commit.message), 'docker')
+    if: contains(github.event.head_commit.message, 'docker') || contains(github.event.head_commit.message, 'Docker')
     
     steps:
       - name: Checkout
