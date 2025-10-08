@@ -33,5 +33,30 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build & Push (make buildx)
-        run: make buildx
+      - name: Build & Push (Mavros Image)
+        run: |
+          docker buildx build \
+          --platform linux/amd64,linux/arm64 \
+          -f docker/dockerfiles/Dockerfile \
+          --cache-from type=gha \
+          --cache-to type=gha,mode=max \
+          --target mavros \
+          --build-arg USER=mavros \
+          --build-arg USER_UID=$(id -u) \
+          --build-arg USER_GID=$(id -g) \
+          -t ohin112/mavros-ros2:latest \
+          --push .
+
+      - name: Build & Push (SLAM Image)
+        run: |
+          docker buildx build \
+          --platform linux/amd64,linux/arm64 \
+          -f docker/dockerfiles/Dockerfile \
+          --cache-from type=gha \
+          --cache-to type=gha,mode=max \
+          --target slam \
+          --build-arg USER=slam \
+          --build-arg USER_UID=$(id -u) \
+          --build-arg USER_GID=$(id -g) \
+          -t ohin112/slam-ros2:latest \
+          --push .
