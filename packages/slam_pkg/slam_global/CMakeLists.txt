@@ -32,8 +32,7 @@ find_package(PCL REQUIRED COMPONENTS common io filters registration)
 add_library(slam_global_lib
   src/MapLoader.cpp
   src/SensorManager.cpp
-  src/LocalizationRefiner.cpp
-  src/InitialLocalization.cpp
+  src/LocalizerICP.cpp  
   src/SubmapExtractor.cpp
   src/MapToOdomPublisher.cpp
 )

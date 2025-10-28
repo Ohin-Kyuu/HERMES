@@ -12,8 +12,7 @@
 #include "MapLoader.hpp"
 #include "SensorManager.hpp"
 #include "SubmapExtractor.hpp"
-#include "InitialLocalization.hpp"
-#include "LocalizationRefiner.hpp"
+#include "LocalizerICP.hpp"
 #include "MapToOdomPublisher.hpp"
 
 class GlobalLocalizationNode : public rclcpp::Node
@@ -46,8 +45,7 @@ private:
     MapLoader           map_manager_;
     SensorManager       sensor_manager_;
     SubmapExtractor     submap_extractor_;
-    InitialLocalization init_localizer_;
-    LocalizationRefiner refiner_;
+    LocalizerICP icp_localizer_;
     MapToOdomPublisher  map_to_odom_pub_;
 
     // --- ROS interface ---

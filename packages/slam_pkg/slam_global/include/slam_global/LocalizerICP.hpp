@@ -1,21 +1,22 @@
 #pragma once
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
-#include "Types.hpp"
+#include "Types.hpp"  // Transform4d, ICPResult
 
-class LocalizationRefiner {
+class LocalizerICP
+{
 public:
-    LocalizationRefiner(double map_voxel, double scan_voxel, double fitness_thresh)
+    LocalizerICP(double map_voxel, double scan_voxel, double fitness_thresh)
     : map_voxel_(map_voxel)
     , scan_voxel_(scan_voxel)
     , fitness_thresh_(fitness_thresh)
     {}
 
-    bool refineICP(
-        const slam_global_types::Transform4d &last_T_map_to_odom,
+    bool align(
+        const slam_global_types::Transform4d &initial_guess,
         const pcl::PointCloud<pcl::PointXYZ> &scan,
         const pcl::PointCloud<pcl::PointXYZ> &submap,
-        slam_global_types::ICPResult &out_result);
+        slam_global_types::ICPResult &out_result) const;
 
 private:
     slam_global_types::ICPResult icpAtScale_(

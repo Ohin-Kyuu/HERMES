@@ -34,8 +34,7 @@ GlobalLocalizationNode::GlobalLocalizationNode()
   map_manager_(0.4 /*voxel*/),
   sensor_manager_(),
   submap_extractor_(6.28 /*fov_rad*/, 30.0 /*fov_far*/),
-  init_localizer_(0.4 /*map_voxel*/, 0.1 /*scan_voxel*/, 0.95 /*fitness_thresh*/),
-  refiner_(0.4 /*map_voxel*/, 0.1 /*scan_voxel*/, 0.95 /*fitness_thresh*/),
+  icp_localizer_(0.4 /*map_voxel*/, 0.1 /*scan_voxel*/, 0.95 /*fitness_thresh*/),
   map_to_odom_pub_(*this)
 {
     // 初始 T_map_to_odom = Identity
@@ -147,7 +146,7 @@ void GlobalLocalizationNode::initialPoseCallback(
 
     // 2. ICP initial alignment
     ICPResult result;
-    bool ok = init_localizer_.runICP(
+    bool ok = icp_localizer_.align(
         T_init_guess,
         sensor_manager_.getScan(),
         submap_cloud,
@@ -207,7 +206,7 @@ void GlobalLocalizationNode::timerCallback()
 
     // 2. refine ICP
     ICPResult result;
-    bool ok = refiner_.refineICP(
+    bool ok = icp_localizer_.align(
         T_map_to_odom_,
         sensor_manager_.getScan(),
         submap_cloud,
