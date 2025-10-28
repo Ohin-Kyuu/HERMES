@@ -61,6 +61,7 @@ services:
       <<: *env
     volumes:
       - ../../config/dds.xml:/tmp/dds.xml:ro
+      - ../../data:/home/slam/data
       - ../../packages/slam_pkg:/home/slam/hermes_ws/src
       - type: volume
         source: slam_install
