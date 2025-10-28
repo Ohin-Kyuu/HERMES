@@ -14,4 +14,9 @@ fi
 
 apt-get update
 rosdep update
-rosdep install --from-paths ${ROS_WS}/src --rosdistro humble -y --ignore-src
+rosdep install \
+    --rosdistro humble \
+    --from-paths ${ROS_WS}/src \
+    --ignore-src \
+    --skip-keys "livox_ros_driver2" \
+    -y

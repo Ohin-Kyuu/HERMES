@@ -1,0 +1,45 @@
+# General
+.git
+.gitignore
+.github
+.gitmodules
+.idea
+.vscode
+*.swp
+*.swo
+*.log
+*.tmp
+*.bak
+__pycache__/
+*.pyc
+
+# Build files
+build/
+devel/
+install/
+logs/
+.env
+.env.*
+*.env
+
+# Docker & Compose
+docker/volumes/
+docker/tmp/
+docker/cache/
+
+!docker/
+!docker/dockerfiles/
+!docker/dockerfiles/Dockerfile
+!docker/scripts/
+
+# Packages
+!packages/
+!packages/mavros_pkg/
+!packages/slam_pkg/
+!packages/mavros_pkg/mavros/
+!packages/slam_pkg/fast_lio2/
+!packages/slam_pkg/livox_ros_driver2/
+
+# README / LICENSE / config files
+!README.md
+!config/
