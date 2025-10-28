@@ -1,14 +1,36 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>slam_global</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <version>0.0.1</version>
+  <description>
+    Global localization and map-based refinement node using LiDAR scan-to-map ICP.
+  </description>
+
   <maintainer email="slam@todo.todo">slam</maintainer>
   <license>MIT</license>
 
+  <!-- Build tool -->
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <!-- Core ROS 2 stuff -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <!-- TF -->
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+
+  <!-- Math / point clouds -->
+  <depend>eigen3_cmake_module</depend>
+  <depend>Eigen3</depend>
+  <depend>PCL</depend>
+
+  <!-- Lint / tests (optional but harmless) -->
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
