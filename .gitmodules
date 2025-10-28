@@ -12,3 +12,6 @@
 	path = packages/slam_pkg/fast_lio2
 	url = https://github.com/Ericsii/FAST_LIO_ROS2
 	branch = ros2
+[submodule "packages/slam_pkg/pcd2pgm"]
+	path = packages/slam_pkg/pcd2pgm
+	url = https://github.com/LihanChen2004/pcd2pgm
