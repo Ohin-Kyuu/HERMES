@@ -81,6 +81,8 @@ bool LocalizerICP::align(
     out_result = fine;
 
     if (fine.fitness < fitness_thresh_) {
+        std::cout << "ICP failed: fitness=" << fine.fitness 
+                  << " < thresh=" << fitness_thresh_ << std::endl;
         return false;
     }
     return true;

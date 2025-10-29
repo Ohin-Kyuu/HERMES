@@ -34,7 +34,7 @@ GlobalLocalizationNode::GlobalLocalizationNode()
   map_loader_(0.4 /*voxel*/),
   sensor_manager_(),
   submap_extractor_(6.28 /*fov_rad*/, 30.0 /*fov_far*/),
-  icp_localizer_(0.4 /*map_voxel*/, 0.1 /*scan_voxel*/, 0.95 /*fitness_thresh*/),
+  icp_localizer_(0.4 /*map_voxel*/, 0.1 /*scan_voxel*/, 0.85 /*fitness_thresh*/),
   map_to_odom_pub_(*this)
 {
     // Initial T_map_to_odom = Identity
@@ -154,7 +154,6 @@ void GlobalLocalizationNode::initialPoseCallback(
 
     if (!ok) {
         RCLCPP_WARN(this->get_logger(), "Initial ICP failed (fitness too low)");
-        // ...可加 debug log result.fitness
         return;
     }
 

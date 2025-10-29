@@ -65,18 +65,16 @@ Eigen::Matrix4d TransformNode::odomToMat4(
 
 void TransformNode::timerCallback()
 {
-    // 1. 先準備 T_map_to_odom
     Eigen::Matrix4d T_map_to_odom = Eigen::Matrix4d::Identity();
     if (have_map_to_odom_) {
         T_map_to_odom = odomToMat4(cur_map_to_odom_);
     }
 
-    // 2. 廣播 TF: map -> camera_init
     {
         geometry_msgs::msg::TransformStamped tf_msg;
         tf_msg.header.stamp = this->now();
         tf_msg.header.frame_id = "map";
-        tf_msg.child_frame_id  = "camera_init";  // 跟你的 python 一樣
+        tf_msg.child_frame_id  = "camera_init";
 
         Eigen::Vector3d t = T_map_to_odom.block<3,1>(0,3);
         Eigen::Matrix3d R = T_map_to_odom.block<3,3>(0,0);
