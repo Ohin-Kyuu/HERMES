@@ -42,11 +42,11 @@ private:
 
     slam_global_types::Transform4d T_map_to_odom_;  // map->odom transform we maintain
 
-    MapLoader           map_manager_;
-    SensorManager       sensor_manager_;
-    SubmapExtractor     submap_extractor_;
+    MapLoader map_loader_;
+    SensorManager sensor_manager_;
+    SubmapExtractor submap_extractor_;
     LocalizerICP icp_localizer_;
-    MapToOdomPublisher  map_to_odom_pub_;
+    MapToOdomPublisher map_to_odom_pub_;
 
     // --- ROS interface ---
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr sub_map_;

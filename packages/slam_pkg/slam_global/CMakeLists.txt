@@ -66,9 +66,8 @@ target_compile_definitions(slam_global_lib
 # ---------------------------------
 # Node executable (the main)
 # ---------------------------------
-add_executable(localizer_node
-  src/localizer_node.cpp
-)
+add_executable(localizer_node src/localizer_node.cpp)
+add_executable(transform_node src/transform_node.cpp)
 
 ament_target_dependencies(localizer_node
   rclcpp
@@ -81,11 +80,25 @@ ament_target_dependencies(localizer_node
   pcl_conversions
 )
 
+ament_target_dependencies(transform_node
+  rclcpp
+  nav_msgs
+  geometry_msgs
+  tf2_ros
+  Eigen3
+)
+
 target_include_directories(localizer_node
   PRIVATE
     include
     ${EIGEN3_INCLUDE_DIRS}
     ${PCL_INCLUDE_DIRS}
+)
+
+target_include_directories(transform_node
+  PRIVATE
+    include
+    ${EIGEN3_INCLUDE_DIRS}
 )
 
 target_link_libraries(localizer_node
@@ -103,6 +116,11 @@ target_compile_definitions(localizer_node
 install(TARGETS
   localizer_node
   slam_global_lib
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS
+  transform_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

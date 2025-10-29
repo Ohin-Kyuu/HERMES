@@ -31,13 +31,13 @@ static sensor_msgs::msg::PointCloud2 pclToROSMsg(
 
 GlobalLocalizationNode::GlobalLocalizationNode()
 : rclcpp::Node("global_localization_node"),
-  map_manager_(0.4 /*voxel*/),
+  map_loader_(0.4 /*voxel*/),
   sensor_manager_(),
   submap_extractor_(6.28 /*fov_rad*/, 30.0 /*fov_far*/),
   icp_localizer_(0.4 /*map_voxel*/, 0.1 /*scan_voxel*/, 0.95 /*fitness_thresh*/),
   map_to_odom_pub_(*this)
 {
-    // 初始 T_map_to_odom = Identity
+    // Initial T_map_to_odom = Identity
     T_map_to_odom_.setIdentity();
 
     // debug publishes
@@ -66,10 +66,10 @@ GlobalLocalizationNode::GlobalLocalizationNode()
 
 void GlobalLocalizationNode::mapCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
 {
-    if (!map_manager_.isReady()) {
-        map_manager_.loadMapMsg(*msg);
+    if (!map_loader_.isReady()) {
+        map_loader_.loadMapMsg(*msg);
         RCLCPP_INFO(this->get_logger(), "Loaded global map (%zu pts)",
-                    map_manager_.getMap().points.size());
+                    map_loader_.getMap().points.size());
     }
 }
 
@@ -93,7 +93,7 @@ void GlobalLocalizationNode::odomCallback(const nav_msgs::msg::Odometry::SharedP
 
 bool GlobalLocalizationNode::canInitialize() const
 {
-    return map_manager_.isReady()
+    return map_loader_.isReady()
         && sensor_manager_.haveScan()
         && sensor_manager_.haveOdom()
         && !initialized_;
@@ -101,7 +101,7 @@ bool GlobalLocalizationNode::canInitialize() const
 
 bool GlobalLocalizationNode::canRefine() const
 {
-    return map_manager_.isReady()
+    return map_loader_.isReady()
         && sensor_manager_.haveScan()
         && sensor_manager_.haveOdom()
         && initialized_;
@@ -132,7 +132,7 @@ void GlobalLocalizationNode::initialPoseCallback(
 
     // 1. extract submap around this guess
     pcl::PointCloud<pcl::PointXYZ> submap_cloud = submap_extractor_.extract(
-        map_manager_.getMap(),
+        map_loader_.getMap(),
         T_init_guess,
         sensor_manager_.getOdom());
 
@@ -174,7 +174,7 @@ void GlobalLocalizationNode::tryStartTimer()
 {
     if (timer_) return;
     if (!initialized_) return;
-    if (!sensor_manager_.haveScan() || !sensor_manager_.haveOdom() || !map_manager_.isReady()) return;
+    if (!sensor_manager_.haveScan() || !sensor_manager_.haveOdom() || !map_loader_.isReady()) return;
 
     // run refine at ~0.5 Hz (2 seconds)
     auto period = std::chrono::milliseconds(2000);
@@ -192,7 +192,7 @@ void GlobalLocalizationNode::timerCallback()
 
     // 1. submap based on last T_map_to_odom_
     pcl::PointCloud<pcl::PointXYZ> submap_cloud = submap_extractor_.extract(
-        map_manager_.getMap(),
+        map_loader_.getMap(),
         T_map_to_odom_,
         sensor_manager_.getOdom());
 
