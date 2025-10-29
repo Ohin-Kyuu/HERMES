@@ -1,3 +1,5 @@
 .vscode
 *.pcd
+
+data/bag
 !data/map/map.pcd
