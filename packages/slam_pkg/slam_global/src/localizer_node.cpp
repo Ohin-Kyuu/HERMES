@@ -64,8 +64,7 @@ GlobalLocalizationNode::GlobalLocalizationNode()
     RCLCPP_INFO(this->get_logger(), "GlobalLocalizationNode started.");
 }
 
-void GlobalLocalizationNode::mapCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
-{
+void GlobalLocalizationNode::mapCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg) {
     if (!map_loader_.isReady()) {
         map_loader_.loadMapMsg(*msg);
         RCLCPP_INFO(this->get_logger(), "Loaded global map (%zu pts)",
@@ -73,8 +72,7 @@ void GlobalLocalizationNode::mapCallback(const sensor_msgs::msg::PointCloud2::Sh
     }
 }
 
-void GlobalLocalizationNode::scanCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
-{
+void GlobalLocalizationNode::scanCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg) {
     sensor_manager_.updateScanMsg(*msg);
 
     // publish debug current scan as-is (camera_init frame)
@@ -86,21 +84,18 @@ void GlobalLocalizationNode::scanCallback(const sensor_msgs::msg::PointCloud2::S
     pub_cur_scan_viz_->publish(scan_msg);
 }
 
-void GlobalLocalizationNode::odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
-{
+void GlobalLocalizationNode::odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg) {
     sensor_manager_.updateOdomMsg(*msg);
 }
 
-bool GlobalLocalizationNode::canInitialize() const
-{
+bool GlobalLocalizationNode::canInitialize() const {
     return map_loader_.isReady()
         && sensor_manager_.haveScan()
         && sensor_manager_.haveOdom()
         && !initialized_;
 }
 
-bool GlobalLocalizationNode::canRefine() const
-{
+bool GlobalLocalizationNode::canRefine() const {
     return map_loader_.isReady()
         && sensor_manager_.haveScan()
         && sensor_manager_.haveOdom()
@@ -108,8 +103,7 @@ bool GlobalLocalizationNode::canRefine() const
 }
 
 Transform4d GlobalLocalizationNode::poseWithCovToMat4(
-    const geometry_msgs::msg::PoseWithCovarianceStamped &msg) const
-{
+    const geometry_msgs::msg::PoseWithCovarianceStamped &msg) const {
     Transform4d T = Transform4d::Identity();
     const auto &p = msg.pose.pose.position;
     const auto &q = msg.pose.pose.orientation;
@@ -120,8 +114,7 @@ Transform4d GlobalLocalizationNode::poseWithCovToMat4(
 }
 
 void GlobalLocalizationNode::initialPoseCallback(
-    const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg)
-{
+    const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg) {
     if (!canInitialize()) {
         RCLCPP_WARN(this->get_logger(),
                     "Cannot initialize yet (need map+scan+odom and not yet initialized)");
@@ -130,7 +123,7 @@ void GlobalLocalizationNode::initialPoseCallback(
 
     Transform4d T_init_guess = poseWithCovToMat4(*msg);
 
-    // 1. extract submap around this guess
+    // extract submap around this guess
     pcl::PointCloud<pcl::PointXYZ> submap_cloud = submap_extractor_.extract(
         map_loader_.getMap(),
         T_init_guess,
@@ -144,7 +137,7 @@ void GlobalLocalizationNode::initialPoseCallback(
         /*stride*/10);
     pub_submap_->publish(submap_msg);
 
-    // 2. ICP initial alignment
+    // ICP initial alignment
     ICPResult result;
     bool ok = icp_localizer_.align(
         T_init_guess,
@@ -157,20 +150,19 @@ void GlobalLocalizationNode::initialPoseCallback(
         return;
     }
 
-    // 3. accept
+    // accept
     T_map_to_odom_ = result.T;
     initialized_ = true;
     RCLCPP_INFO(this->get_logger(), "Initialized! fitness=%.3f", result.fitness);
 
-    // 4. publish /map_to_odom
+    // publish /map_to_odom
     map_to_odom_pub_.publishOdometry(T_map_to_odom_, sensor_manager_.getOdom());
 
-    // 5. start periodic refine
+    // start periodic refine
     tryStartTimer();
 }
 
-void GlobalLocalizationNode::tryStartTimer()
-{
+void GlobalLocalizationNode::tryStartTimer() {
     if (timer_) return;
     if (!initialized_) return;
     if (!sensor_manager_.haveScan() || !sensor_manager_.haveOdom() || !map_loader_.isReady()) return;
@@ -183,8 +175,7 @@ void GlobalLocalizationNode::tryStartTimer()
     RCLCPP_INFO(this->get_logger(), "Refinement timer started.");
 }
 
-void GlobalLocalizationNode::timerCallback()
-{
+void GlobalLocalizationNode::timerCallback() {
     if (!canRefine()) {
         return;
     }
@@ -224,8 +215,7 @@ void GlobalLocalizationNode::timerCallback()
     map_to_odom_pub_.publishOdometry(T_map_to_odom_, sensor_manager_.getOdom());
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
 
     auto node = std::make_shared<GlobalLocalizationNode>();

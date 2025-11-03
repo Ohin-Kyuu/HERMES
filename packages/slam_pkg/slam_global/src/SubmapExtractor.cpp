@@ -7,8 +7,7 @@
 
 using slam_global_types::Transform4d;
 
-static Transform4d odomToBase(const nav_msgs::msg::Odometry &odom)
-{
+static Transform4d odomToBase(const nav_msgs::msg::Odometry &odom) {
     Transform4d T = Transform4d::Identity();
     const auto &p = odom.pose.pose.position;
     const auto &q = odom.pose.pose.orientation;
@@ -18,8 +17,7 @@ static Transform4d odomToBase(const nav_msgs::msg::Odometry &odom)
     return T;
 }
 
-static Transform4d invertSE3(const Transform4d &T)
-{
+static Transform4d invertSE3(const Transform4d &T) {
     Transform4d Ti = Transform4d::Identity();
     Eigen::Matrix3d R = T.block<3,3>(0,0);
     Eigen::Vector3d t = T.block<3,1>(0,3);
@@ -29,14 +27,12 @@ static Transform4d invertSE3(const Transform4d &T)
 }
 
 SubmapExtractor::SubmapExtractor(double fov_rad, double fov_far_dist)
-: fov_rad_(fov_rad), fov_far_(fov_far_dist)
-{}
+: fov_rad_(fov_rad), fov_far_(fov_far_dist) {}
 
 pcl::PointCloud<pcl::PointXYZ> SubmapExtractor::extract(
     const pcl::PointCloud<pcl::PointXYZ> &global_map,
     const Transform4d &T_map_to_odom_guess,
-    const nav_msgs::msg::Odometry &odom_msg) const
-{
+    const nav_msgs::msg::Odometry &odom_msg) const {
     // 1. odom -> base_link
     Transform4d T_odom_to_base = odomToBase(odom_msg);
 
@@ -49,8 +45,7 @@ pcl::PointCloud<pcl::PointXYZ> SubmapExtractor::extract(
     pcl::PointCloud<pcl::PointXYZ> submap;
     submap.reserve(global_map.size());
 
-    for (const auto &pt_map : global_map.points)
-    {
+    for (const auto &pt_map : global_map.points) {
         Eigen::Vector4d p_map(
             static_cast<double>(pt_map.x),
             static_cast<double>(pt_map.y),

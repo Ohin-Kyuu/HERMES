@@ -3,8 +3,7 @@
 using std::placeholders::_1;
 
 TransformNode::TransformNode()
-: rclcpp::Node("transform_fusion")
-{
+: rclcpp::Node("transform_fusion") {
     RCLCPP_INFO(this->get_logger(), "Transform Fusion Node Inited...");
 
     // publisher: /localization
@@ -34,22 +33,19 @@ TransformNode::TransformNode()
 }
 
 void TransformNode::odomCallback(
-    const nav_msgs::msg::Odometry::SharedPtr msg)
-{
+    const nav_msgs::msg::Odometry::SharedPtr msg) {
     cur_odom_to_baselink_ = *msg;
     have_odom_ = true;
 }
 
 void TransformNode::mapToOdomCallback(
-    const nav_msgs::msg::Odometry::SharedPtr msg)
-{
+    const nav_msgs::msg::Odometry::SharedPtr msg) {
     cur_map_to_odom_ = *msg;
     have_map_to_odom_ = true;
 }
 
 Eigen::Matrix4d TransformNode::odomToMat4(
-    const nav_msgs::msg::Odometry &odom_msg)
-{
+    const nav_msgs::msg::Odometry &odom_msg) {
     const auto &p = odom_msg.pose.pose.position;
     const auto &q = odom_msg.pose.pose.orientation;
 
@@ -63,19 +59,19 @@ Eigen::Matrix4d TransformNode::odomToMat4(
     return T;
 }
 
-void TransformNode::timerCallback()
-{
+void TransformNode::timerCallback() {
+    //  T_map_to_odom
     Eigen::Matrix4d T_map_to_odom = Eigen::Matrix4d::Identity();
     if (have_map_to_odom_) {
         T_map_to_odom = odomToMat4(cur_map_to_odom_);
     }
 
+    //  TF: map -> camera_init
     {
         geometry_msgs::msg::TransformStamped tf_msg;
         tf_msg.header.stamp = this->now();
         tf_msg.header.frame_id = "map";
-        tf_msg.child_frame_id  = "camera_init";
-
+        tf_msg.child_frame_id  = "camera_init";  
         Eigen::Vector3d t = T_map_to_odom.block<3,1>(0,3);
         Eigen::Matrix3d R = T_map_to_odom.block<3,3>(0,0);
         Eigen::Quaterniond q(R);
@@ -128,8 +124,7 @@ void TransformNode::timerCallback()
 }
 
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
 
     auto node = std::make_shared<TransformNode>();

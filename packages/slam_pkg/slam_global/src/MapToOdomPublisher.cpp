@@ -2,15 +2,13 @@
 
 using slam_global_types::Transform4d;
 
-MapToOdomPublisher::MapToOdomPublisher(rclcpp::Node &node)
-{
+MapToOdomPublisher::MapToOdomPublisher(rclcpp::Node &node) {
     pub_map_to_odom_ = node.create_publisher<nav_msgs::msg::Odometry>("/map_to_odom", 1);
 }
 
 void MapToOdomPublisher::publishOdometry(
     const Transform4d &T_map_to_odom,
-    const nav_msgs::msg::Odometry &odom_time_source)
-{
+    const nav_msgs::msg::Odometry &odom_time_source) {
     nav_msgs::msg::Odometry msg;
     msg.header = odom_time_source.header;
     msg.header.frame_id = "map";

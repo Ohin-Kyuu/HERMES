@@ -2,16 +2,21 @@
 	path = packages/mavros_pkg/mavros
 	url = https://github.com/mavlink/mavros.git
 	branch = ros2
+	ignore = dirty
 [submodule "packages/mavros_pkg/xrce_dds"]
 	path = packages/mavros_pkg/xrce_dds
 	url = https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+	ignore = dirty
 [submodule "packages/slam_pkg/livox_ros_driver2"]
 	path = packages/slam_pkg/livox_ros_driver2
 	url = https://github.com/Livox-SDK/livox_ros_driver2.git
+	ignore = dirty
 [submodule "packages/slam_pkg/fast_lio2"]
 	path = packages/slam_pkg/fast_lio2
 	url = https://github.com/Ericsii/FAST_LIO_ROS2
 	branch = ros2
+	ignore = dirty
 [submodule "packages/slam_pkg/pcd2pgm"]
 	path = packages/slam_pkg/pcd2pgm
 	url = https://github.com/LihanChen2004/pcd2pgm
+	ignore = dirty

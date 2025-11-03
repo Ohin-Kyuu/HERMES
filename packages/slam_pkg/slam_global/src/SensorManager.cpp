@@ -3,8 +3,7 @@
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 
-void SensorManager::updateScanMsg(const sensor_msgs::msg::PointCloud2 &msg)
-{
+void SensorManager::updateScanMsg(const sensor_msgs::msg::PointCloud2 &msg) {
     pcl::PointCloud<pcl::PointXYZ> pcl_cloud;
     pcl::fromROSMsg(msg, pcl_cloud);
 
@@ -24,8 +23,7 @@ void SensorManager::updateScanMsg(const sensor_msgs::msg::PointCloud2 &msg)
     have_scan_ = true;
 }
 
-void SensorManager::updateOdomMsg(const nav_msgs::msg::Odometry &msg)
-{
+void SensorManager::updateOdomMsg(const nav_msgs::msg::Odometry &msg) {
     cur_odom_ = msg;
     have_odom_ = true;
 }

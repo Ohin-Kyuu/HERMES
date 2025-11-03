@@ -7,8 +7,7 @@ using slam_global_types::ICPResult;
 
 static pcl::PointCloud<pcl::PointXYZ> voxelDownPCL(
     const pcl::PointCloud<pcl::PointXYZ> &cloud,
-    double leaf)
-{
+    double leaf) {
     if (leaf <= 0.0) {
         return cloud;
     }
@@ -28,8 +27,8 @@ ICPResult LocalizerICP::icpAtScale_(
     const pcl::PointCloud<pcl::PointXYZ> &scan,
     const pcl::PointCloud<pcl::PointXYZ> &submap,
     const Transform4d &init,
-    double scale) const
-{
+    double scale) const {
+
     ICPResult res;
     res.T = init;
     res.fitness = 0.0;
@@ -73,8 +72,8 @@ bool LocalizerICP::align(
     const Transform4d &initial_guess,
     const pcl::PointCloud<pcl::PointXYZ> &scan,
     const pcl::PointCloud<pcl::PointXYZ> &submap,
-    ICPResult &out_result) const
-{
+    ICPResult &out_result) const {
+    
     ICPResult coarse = icpAtScale_(scan, submap, initial_guess, 5.0);
     ICPResult fine   = icpAtScale_(scan, submap, coarse.T,      1.0);
 

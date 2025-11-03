@@ -10,8 +10,7 @@ MapLoader::MapLoader(double voxel_size)
 
 static pcl::PointCloud<pcl::PointXYZ> voxelDownsample(
     const pcl::PointCloud<pcl::PointXYZ> &in,
-    double leaf)
-{
+    double leaf) {
     if (leaf <= 0.0) {
         return in; // no downsample
     }
@@ -27,8 +26,7 @@ static pcl::PointCloud<pcl::PointXYZ> voxelDownsample(
     return out;
 }
 
-void MapLoader::loadMapMsg(const sensor_msgs::msg::PointCloud2 &msg)
-{
+void MapLoader::loadMapMsg(const sensor_msgs::msg::PointCloud2 &msg) {
     pcl::PointCloud<pcl::PointXYZ> pcl_cloud;
     pcl::fromROSMsg(msg, pcl_cloud);
 
