@@ -32,18 +32,18 @@ def generate_launch_description():
         output='screen'
     )
 
-    tf_pub_3 = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='tf_pub_3',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'camera_init']
-    )
+    # tf_pub_3 = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     name='tf_pub_3',
+    #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'camera_init']
+    # )
 
     ld = LaunchDescription()
     ld.add_action(map_publisher)
     ld.add_action(localizer)
     ld.add_action(transform)
 
-    ld.add_action(tf_pub_3)
+    # ld.add_action(tf_pub_3)
 
     return ld

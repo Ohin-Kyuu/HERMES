@@ -41,7 +41,6 @@ void MapLoader::loadMapMsg(const sensor_msgs::msg::PointCloud2 &msg) {
     cleaned.height = 1;
     cleaned.is_dense = true;
 
-    // voxel filter like Open3D::VoxelDownSample(voxel_size_)
     global_map_ = voxelDownsample(cleaned, voxel_size_);
 
     ready_ = true;
