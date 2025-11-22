@@ -33,6 +33,9 @@ private:
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_localization_;
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 
+    // subs 
+    rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr sub_odom_;
+    rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr sub_map2odom_;
     // timer (50 Hz => 20 ms)
     rclcpp::TimerBase::SharedPtr timer_;
 };

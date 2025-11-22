@@ -78,7 +78,7 @@ void GlobalLocalizationNode::scanCallback(const sensor_msgs::msg::PointCloud2::S
     // publish debug current scan as-is (camera_init frame)
     auto scan_msg = pclToROSMsg(
         sensor_manager_.getScan(),
-        /*frame_id*/ "camera_init",
+        /*frame_id*/ "odom",
         this->now(),
         /*stride*/5);
     pub_cur_scan_viz_->publish(scan_msg);

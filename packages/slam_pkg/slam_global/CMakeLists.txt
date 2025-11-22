@@ -68,6 +68,7 @@ target_compile_definitions(slam_global_lib
 # ---------------------------------
 add_executable(localizer_node src/localizer_node.cpp)
 add_executable(transform_node src/transform_node.cpp)
+add_executable(odom2pose src/odom2pose.cpp)
 
 ament_target_dependencies(localizer_node
   rclcpp
@@ -86,6 +87,12 @@ ament_target_dependencies(transform_node
   geometry_msgs
   tf2_ros
   Eigen3
+)
+
+ament_target_dependencies(odom2pose
+  rclcpp
+  nav_msgs
+  geometry_msgs
 )
 
 target_include_directories(localizer_node
@@ -121,6 +128,11 @@ install(TARGETS
 
 install(TARGETS
   transform_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS
+  odom2pose
   DESTINATION lib/${PROJECT_NAME}
 )
 

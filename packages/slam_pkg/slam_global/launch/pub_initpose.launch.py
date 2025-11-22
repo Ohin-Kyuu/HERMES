@@ -8,12 +8,12 @@ def generate_launch_description():
         name='publish_initial_pose',
         output='screen',
         parameters=[{
-            'x': -0.55,
-            'y':  1.72,
-            'z':  0.0,
+            'x': 0.0,
+            'y': 0.0,
+            'z': 0.0,
             'roll':  0.0,
             'pitch': 0.0,
-            'yaw':  1.5
+            'yaw': 0.0
         }]   
     )
 

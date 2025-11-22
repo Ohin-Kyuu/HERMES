@@ -14,16 +14,16 @@ TransformNode::TransformNode()
     tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
     // subscribers
-    auto qos = rclcpp::QoS(rclcpp::KeepLast(1)).best_effort();
+    // auto qos = rclcpp::QoS(rclcpp::KeepLast(1)).best_effort();
 
-    this->create_subscription<nav_msgs::msg::Odometry>(
+    sub_odom_ = this->create_subscription<nav_msgs::msg::Odometry>(
         "/Odometry",
-        qos,
+        50,
         std::bind(&TransformNode::odomCallback, this, _1));
 
-    this->create_subscription<nav_msgs::msg::Odometry>(
+    sub_map2odom_ = this->create_subscription<nav_msgs::msg::Odometry>(
         "/map_to_odom",
-        qos,
+        10,
         std::bind(&TransformNode::mapToOdomCallback, this, _1));
 
     // timer at 50 Hz (20 ms)
@@ -71,7 +71,7 @@ void TransformNode::timerCallback() {
         geometry_msgs::msg::TransformStamped tf_msg;
         tf_msg.header.stamp = this->now();
         tf_msg.header.frame_id = "map";
-        tf_msg.child_frame_id  = "camera_init";  
+        tf_msg.child_frame_id  = "odom";  
         Eigen::Vector3d t = T_map_to_odom.block<3,1>(0,3);
         Eigen::Matrix3d R = T_map_to_odom.block<3,3>(0,0);
         Eigen::Quaterniond q(R);
